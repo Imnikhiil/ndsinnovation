@@ -52,6 +52,7 @@ html {
   scroll-padding-top: var(--header-height);
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -466,12 +467,18 @@ a.btn-gold:hover {
 /* ---- Hero ---- */
 .hero {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
+  display: block;
   background: var(--gradient-hero);
   position: relative;
   padding-top: var(--header-height);
   overflow: hidden;
+}
+
+.hero > .container {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .hero-bg {
@@ -1512,6 +1519,21 @@ section:nth-child(even) {
   .process-timeline::before {
     display: none;
   }
+
+  /* removed — scroll indicator deleted from HTML */
+  .scroll-indicator {
+    display: none !important;
+  }
+
+  .hero-showcase {
+    overflow: hidden;
+  }
+
+  .hero-orb-1,
+  .hero-orb-2,
+  .hero-orb-3 {
+    opacity: 0.2;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1586,6 +1608,11 @@ section:nth-child(even) {
     min-height: auto;
     padding-top: calc(var(--header-height) + 24px);
     padding-bottom: 48px;
+  }
+
+  .hero > .container {
+    min-height: auto;
+    display: block;
   }
 
   .hero-badge {
@@ -2602,43 +2629,9 @@ section:nth-child(even) {
   top: auto;
 }
 
-/* Scroll indicator */
+/* Scroll indicator — removed from site */
 .scroll-indicator {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-muted);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  z-index: 2;
-  animation: bounceDown 2s ease-in-out infinite;
-}
-
-.scroll-indicator-wheel {
-  width: 22px;
-  height: 36px;
-  border: 2px solid var(--border-accent);
-  border-radius: 12px;
-  position: relative;
-}
-
-.scroll-indicator-wheel::after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 8px;
-  background: var(--accent);
-  border-radius: 2px;
-  animation: scrollWheel 2s ease-in-out infinite;
+  display: none !important;
 }
 
 /* Border beam effect */
@@ -2897,8 +2890,8 @@ section:nth-child(even) {
 }
 
 @keyframes bounceDown {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 @keyframes scrollWheel {
@@ -2948,10 +2941,6 @@ section:nth-child(even) {
   .cursor-dot,
   .cursor-ring {
     display: none !important;
-  }
-
-  .scroll-indicator {
-    display: none;
   }
 
   .wa-float span {
