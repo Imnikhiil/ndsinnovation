@@ -82,6 +82,9 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   transition: background-color var(--transition), color var(--transition);
+  font-variant-numeric: lining-nums;
+  font-variant-position: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "lnum" 1, "onum" 0, "subs" 0, "sups" 0, "calt" 0;
 }
 
 /* ---- Page transitions ---- */
@@ -576,9 +579,11 @@ a.btn-gold:hover {
 
 .stat-item strong {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.75rem;
+  font-weight: 800;
   color: var(--text-primary);
+  font-variant-numeric: lining-nums;
 }
 
 .stat-item span {
@@ -1894,6 +1899,7 @@ section:nth-child(even) {
   opacity: 0.2;
 }
 
+/* Syne ONLY on hero title — everywhere else uses Plus Jakarta (fixes g/y/p/9 clip + subscript digits) */
 .hero-title {
   font-family: var(--font-display);
   font-weight: 700;
@@ -1901,6 +1907,7 @@ section:nth-child(even) {
   line-height: 1.2;
   padding-bottom: 0.15em;
   overflow: visible;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 0;
 }
 
 .hero-title .gradient-text,
@@ -2096,7 +2103,8 @@ section:nth-child(even) {
 .float-badge strong {
   display: block;
   font-size: 0.78rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 700;
   color: var(--text-primary);
 }
 
@@ -2152,12 +2160,26 @@ section:nth-child(even) {
 }
 
 .marquee-track span {
-  font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-variant-numeric: lining-nums;
+  font-variant-position: normal;
+  font-feature-settings: "lnum" 1, "onum" 0, "subs" 0, "sups" 0, "calt" 0;
+}
+
+/* Keep version digits (5, 3) on baseline — not subscript */
+.marquee-track .marquee-digit {
+  font-size: inherit;
+  font-weight: inherit;
+  vertical-align: baseline;
+  position: static;
+  line-height: inherit;
+  font-variant-position: normal;
+  font-feature-settings: "subs" 0, "sups" 0, "calt" 0;
 }
 
 .marquee-dot {
@@ -2298,7 +2320,7 @@ section:nth-child(even) {
 }
 
 .promise-number {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 3rem;
   font-weight: 800;
   background: var(--gradient-accent);
@@ -2308,6 +2330,10 @@ section:nth-child(even) {
   opacity: 0.4;
   margin-bottom: 16px;
   position: relative;
+  font-variant-numeric: lining-nums;
+  font-variant-position: normal;
+  line-height: 1.2;
+  overflow: visible;
 }
 
 .promise-card h3 {
@@ -2449,6 +2475,7 @@ section:nth-child(even) {
   .portfolio-thumb {
     min-height: 140px;
   }
+}
 
 /* Honest Banner */
 .honest-banner {
@@ -2735,6 +2762,8 @@ section:nth-child(even) {
 .title-reveal {
   position: relative;
   display: inline-block;
+  overflow: visible;
+  padding-bottom: 0.12em;
 }
 
 .title-reveal::after {
@@ -2984,8 +3013,11 @@ section:nth-child(even) {
 .wa-float svg {
   width: 22px;
   height: 22px;
+  max-width: 22px;
+  max-height: 22px;
   fill: currentColor;
   flex-shrink: 0;
+  display: block;
 }
 
 .wa-float:hover {
@@ -2997,7 +3029,9 @@ section:nth-child(even) {
 /* ---- Portfolio (honest) ---- */
 .portfolio-thumb-img {
   max-height: 130px;
+  max-width: 85%;
   width: auto;
+  height: auto;
   object-fit: contain;
   position: relative;
   z-index: 1;
@@ -3100,7 +3134,8 @@ section:nth-child(even) {
   margin-bottom: 8px;
   line-height: 1.45;
   overflow: visible;
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1, "onum" 0, "subs" 0, "sups" 0;
 }
 
 .pricing-card > p {

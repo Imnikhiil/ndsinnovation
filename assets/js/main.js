@@ -8,7 +8,7 @@ const NDS = {
     starter: 'Hi Nikhil! I want the Landing Page package (₹7,999). Can we discuss my project?',
     business: 'Hi Nikhil! I want the Business Website package (₹18,999). Can we have a free consultation?',
     ecommerce: 'Hi Nikhil! I am interested in the E-Commerce / PWA package (₹34,999). Please share next steps.',
-    portal: 'Hi Nikhil! I need a custom portal/web app (from ₹50,000). Can we schedule a discovery call?',
+    portal: 'Hi Nikhil! I need a custom solution for my project. Can we discuss scope and pricing?',
     maintenance: 'Hi Nikhil! I want monthly website maintenance (from ₹1,499/mo). Please share details.',
   },
 };
