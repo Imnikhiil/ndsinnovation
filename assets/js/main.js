@@ -5,6 +5,12 @@ const NDS = {
   email: 'ndsinnovationn@gmail.com',
   waGreeting: 'Hi Nikhil! I found NDS Innovation website and want to discuss a project.',
   packages: {
+    'student-portfolio': 'Hi Nikhil! I am a college student and want the Student Portfolio package (₹4,999). I can share my college ID.',
+    'student-club': 'Hi Nikhil! I am a college student and want the Club / Fest / Event Page package (₹5,999). I can share my college ID.',
+    'student-mini': 'Hi Nikhil! I am a college student and want the Mini Website package (₹9,999). I can share my college ID.',
+    'student-uiux': 'Hi Nikhil! I am a college student and want the UI/UX Design package (₹2,999). I can share my college ID.',
+    'student-pwa': 'Hi Nikhil! I am a college student and want the Student App / PWA package (₹19,999). I can share my college ID.',
+    'student-custom': 'Hi Nikhil! I am a college student with a custom project idea. Can we discuss scope and student pricing? I can share my college ID.',
     starter: 'Hi Nikhil! I want the Landing Page package (₹7,999). Can we discuss my project?',
     business: 'Hi Nikhil! I want the Business Website package (₹18,999). Can we have a free consultation?',
     ecommerce: 'Hi Nikhil! I am interested in the E-Commerce / PWA package (₹34,999). Please share next steps.',
@@ -34,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initTitleReveal();
   initBeamAngle();
   initMagneticButtons();
+  initFaq();
+  initPwa();
 });
 
 /* Smooth page transitions between internal pages */
@@ -623,4 +631,42 @@ function initBeamAngle() {
     requestAnimationFrame(rotate);
   }
   if (document.querySelector('.border-beam')) rotate();
+}
+
+/* FAQ accordion */
+function initFaq() {
+  document.querySelectorAll('.faq-question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('is-open');
+
+      document.querySelectorAll('.faq-item.is-open').forEach((openItem) => {
+        if (openItem === item) return;
+        openItem.classList.remove('is-open');
+        const openAnswer = openItem.querySelector('.faq-answer');
+        if (openAnswer) openAnswer.style.maxHeight = '0';
+        openItem.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+      });
+
+      if (isOpen) {
+        item.classList.remove('is-open');
+        answer.style.maxHeight = '0';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('is-open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
+/* PWA service worker */
+function initPwa() {
+  if (!('serviceWorker' in navigator)) return;
+  window.addEventListener('load', () => {
+    const swPath = new URL('sw.js', window.location.href).pathname;
+    navigator.serviceWorker.register(swPath).catch(() => {});
+  });
 }

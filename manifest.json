@@ -1,0 +1,24 @@
+{
+  "name": "NDS Innovation",
+  "short_name": "NDS",
+  "description": "Premium websites, PWA apps & digital solutions by Nikhil — India.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#14120B",
+  "theme_color": "#14120B",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/images/nds-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/nds-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

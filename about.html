@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Nikhil — Founder of NDS Innovation. Freelance web developer building premium digital experiences.">
+  <meta name="description" content="About Nikhil — Founder of NDS Innovation. Freelance web developer building premium websites, PWAs & campus portals in India.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14120B">
+  <link rel="canonical" href="https://ndsinnovation.onrender.com/about.html">
+  <meta property="og:title" content="About Nikhil | NDS Innovation">
+  <meta property="og:description" content="Meet Nikhil — solo developer behind NDS Innovation. DSEU campus portal, RC Innovation Club & more.">
+  <meta property="og:image" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ndsinnovation.onrender.com/about.html">
+  <meta property="og:type" content="website">
   <title>About Me | NDS Innovation</title>
   <link rel="icon" href="assets/images/nds-logo.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');
@@ -29,7 +43,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html" class="active">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="portfolio.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html" class="btn btn-primary nav-cta magnetic-btn">Hire Me</a></li>
@@ -61,26 +75,29 @@
           <p style="color: var(--text-secondary); margin-bottom: 16px;">
             I'm a solo developer, which means when you hire me, you work directly with me — no middlemen, no agency overhead. Every project gets my full attention from the first call to launch day.
           </p>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">
+            I've built real platforms for <a href="https://dseu-rajokri-campus-portal.onrender.com" target="_blank" rel="noopener" style="color:#60a5fa;"><strong>DSEU Rajokri Campus</strong></a> — including the full campus portal and the <a href="https://rc-innovation-club.onrender.com/" target="_blank" rel="noopener" style="color:#60a5fa;">RC Innovation Club</a> website — alongside this agency site and client-ready concepts.
+          </p>
           <p style="color: var(--text-secondary);">
             <em class="hindi-touch">Main sirf code nahi likhta — main aapke business ko online strong banata hoon.</em>
           </p>
         </div>
         <div class="about-visual reveal">
-          <div class="profile-avatar" aria-hidden="true">N</div>
+          <img src="assets/images/nikhil.jpg" alt="Nikhil — Founder of NDS Innovation" class="profile-photo" loading="lazy" width="140" height="140">
           <h3>Nikhil</h3>
           <p style="color:var(--accent);font-size:0.85rem;margin-bottom:20px;">Founder & Developer — NDS Innovation</p>
-          <div style="display:flex;justify-content:center;gap:32px;position:relative;">
-            <div>
-              <strong style="font-size:1.5rem;color:var(--accent);display:block;">Free</strong>
-              <span style="font-size:0.8rem;color:var(--text-muted);">Consultation</span>
+          <div class="trust-stats">
+            <div class="trust-stat">
+              <strong>3+</strong>
+              <span>Live Projects</span>
             </div>
-            <div>
-              <strong style="font-size:1.5rem;color:var(--accent);display:block;">1:1</strong>
-              <span style="font-size:0.8rem;color:var(--text-muted);">Direct Contact</span>
+            <div class="trust-stat">
+              <strong>1:1</strong>
+              <span>Direct Contact</span>
             </div>
-            <div>
-              <strong style="font-size:1.5rem;color:var(--accent);display:block;">24hr</strong>
-              <span style="font-size:0.8rem;color:var(--text-muted);">Reply</span>
+            <div class="trust-stat">
+              <strong>24hr</strong>
+              <span>Reply</span>
             </div>
           </div>
         </div>
@@ -145,6 +162,7 @@
             <li><a href="about.html">About Me</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="portfolio.html">My Work</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -172,6 +190,6 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="assets/js/main.js?v=6"></script>
 </body>
 </html>

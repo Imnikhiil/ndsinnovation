@@ -3,10 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NDS Innovation — Premium websites, PWA apps, e-commerce & custom digital solutions by Nikhil. Free consultation.">
+  <meta name="description" content="NDS Innovation — Premium websites, PWA apps & e-commerce by Nikhil. Freelance web developer in India. Free consultation.">
+  <meta name="keywords" content="web developer India, freelance website developer Delhi, PWA developer, NDS Innovation, Nikhil">
+  <meta name="author" content="Nikhil — NDS Innovation">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14120B">
+  <link rel="canonical" href="https://ndsinnovation.onrender.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NDS Innovation">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="NDS Innovation — Premium Web Developer">
+  <meta property="og:description" content="Websites, PWAs & custom digital solutions by Nikhil. Transparent pricing, free consultation.">
+  <meta property="og:image" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
+  <meta property="og:image:secure_url" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NDS Innovation — Premium Web Developer">
+  <meta property="og:url" content="https://ndsinnovation.onrender.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NDS Innovation — Premium Web Developer">
+  <meta name="twitter:description" content="Websites, PWAs & custom digital solutions by Nikhil. Free consultation on WhatsApp.">
+  <meta name="twitter:image" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
   <title>NDS Innovation — Premium Web Developer</title>
   <link rel="icon" href="assets/images/nds-logo.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/images/nds-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NDS Innovation",
+    "description": "Premium websites, PWA apps, and custom digital solutions by Nikhil.",
+    "url": "https://ndsinnovation.onrender.com",
+    "email": "ndsinnovationn@gmail.com",
+    "telephone": "+91-93106-44433",
+    "areaServed": "IN",
+    "founder": { "@type": "Person", "name": "Nikhil" },
+    "sameAs": [
+      "https://www.instagram.com/ndsinnovation",
+      "https://wa.me/919310644433"
+    ]
+  }
+  </script>
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');
@@ -40,7 +83,7 @@
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="portfolio.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html" class="btn btn-primary nav-cta magnetic-btn">Hire Me</a></li>
@@ -83,9 +126,14 @@
               <span>Free Consultation on WhatsApp</span>
               <span class="btn-shine"></span>
             </a>
-            <a href="#pricing" class="btn btn-outline">View Packages & Prices</a>
+            <a href="pricing.html" class="btn btn-outline">View Packages & Prices</a>
+            <a href="pricing.html#student-pricing" class="btn btn-student">College Student Prices →</a>
           </div>
           <div class="hero-stats hero-anim" style="--d:0.8s">
+            <div class="stat-item">
+              <strong>3+</strong>
+              <span>Live Projects</span>
+            </div>
             <div class="stat-item">
               <strong>Free</strong>
               <span>Consultation</span>
@@ -93,10 +141,6 @@
             <div class="stat-item">
               <strong>24hr</strong>
               <span>Response Time</span>
-            </div>
-            <div class="stat-item">
-              <strong>1:1</strong>
-              <span>Personal Attention</span>
             </div>
           </div>
         </div>
@@ -355,7 +399,7 @@
         <div class="portfolio-card premium-card border-beam reveal">
           <div class="portfolio-thumb portfolio-thumb-live">
             <div class="thumb-shine"></div>
-            <img src="assets/images/nds-logo.png" alt="NDS Innovation website" class="portfolio-thumb-img">
+            <img src="assets/images/nds-logo.png" alt="NDS Innovation website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
           <div class="portfolio-info">
             <div class="portfolio-tags">
@@ -364,7 +408,7 @@
             </div>
             <h3>NDS Innovation Website</h3>
             <p class="portfolio-meta">This site — built from scratch with HTML, CSS & JavaScript.</p>
-            <p>Dark minimal design, smooth animations, responsive layout, and WhatsApp contact flow.</p>
+            <p>Dark minimal agency site with dedicated pricing page, student packages, smooth animations, and WhatsApp inquiry flow.</p>
             <div class="portfolio-actions">
               <a href="index.html" class="btn btn-outline">You're here →</a>
             </div>
@@ -373,7 +417,7 @@
         <div class="portfolio-card premium-card border-beam reveal">
           <div class="portfolio-thumb portfolio-thumb-live">
             <div class="thumb-shine"></div>
-            <img src="assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" class="portfolio-thumb-img">
+            <img src="assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
           <div class="portfolio-info">
             <div class="portfolio-tags">
@@ -386,6 +430,24 @@
             <p>Multi-role campus portal with student, faculty & admin dashboards — timetables, attendance, notices, and roster management.</p>
             <div class="portfolio-actions">
               <a href="https://dseu-rajokri-campus-portal.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">View Portal →</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card premium-card border-beam reveal">
+          <div class="portfolio-thumb portfolio-thumb-live">
+            <div class="thumb-shine"></div>
+            <img src="assets/images/rc-club.png" alt="RC Innovation Club website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="tag tag-live">Live</span>
+              <span class="tag">Club Website</span>
+            </div>
+            <h3>RC Innovation Club</h3>
+            <p class="portfolio-meta">DSEU Rajokri Campus — student innovation club.</p>
+            <p>Full club platform: events, core team, gallery, resources, certificate verification, membership registration & contact — with theme switching.</p>
+            <div class="portfolio-actions">
+              <a href="https://rc-innovation-club.onrender.com/" class="btn btn-outline" target="_blank" rel="noopener">View Site →</a>
             </div>
           </div>
         </div>
@@ -412,113 +474,51 @@
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="pricing">
+  <!-- Project Trust -->
+  <section id="testimonials">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Transparent Pricing</span>
-        <h2 class="section-title">Packages That <span class="gradient-text">Convert</span></h2>
-        <p class="section-subtitle">Clear scope, fixed starting price, no surprises — <em class="hindi-touch">pehle samjho, phir decide karo.</em></p>
+        <span class="section-label">Real Projects</span>
+        <h2 class="section-title">Built & <span class="gradient-text">Delivered</span></h2>
+        <p class="section-subtitle">Honest highlights from live work — no fake reviews, only real projects I've shipped.</p>
       </div>
-
-      <div class="pricing-trust reveal">
-        <div class="pricing-trust-item"><span>✓</span> Free consultation</div>
-        <div class="pricing-trust-item"><span>✓</span> 50% advance to start</div>
-        <div class="pricing-trust-item"><span>✓</span> 30-day bug support</div>
-        <div class="pricing-trust-item"><span>✓</span> You own your domain</div>
-      </div>
-
-      <div class="pricing-grid">
-        <div class="pricing-card reveal">
-          <span class="pricing-badge">Starter</span>
-          <h3>Landing Page</h3>
-          <div class="pricing-amount">₹7,999</div>
-          <p class="pricing-for">Shop, salon, tutor, personal brand</p>
-          <p class="pricing-timeline">⏱ 7–10 days delivery</p>
-          <p class="pricing-includes-label">What's included</p>
-          <ul>
-            <li>1 responsive page</li>
-            <li>WhatsApp & contact CTA</li>
-            <li>Mobile + fast loading</li>
-            <li>1 revision round</li>
-            <li>Hosting setup guide</li>
-          </ul>
-          <p class="pricing-excludes">Logo design, extra pages & content writing — extra charge</p>
-          <a href="#" class="btn btn-outline pricing-wa-btn" data-package="starter" style="width:100%;justify-content:center;">Book on WhatsApp →</a>
-        </div>
-
-        <div class="pricing-card featured reveal">
-          <span class="pricing-badge pricing-badge-hot">Most Popular</span>
-          <h3>Business Website</h3>
-          <div class="pricing-amount">₹18,999</div>
-          <p class="pricing-for">Coaching, clinic, agency, restaurant</p>
-          <p class="pricing-timeline">⏱ 2–3 weeks delivery</p>
-          <p class="pricing-includes-label">What's included</p>
-          <ul>
-            <li>Up to 5 pages</li>
-            <li>Services + contact + gallery</li>
-            <li>SEO-ready + social links</li>
-            <li>WhatsApp inquiry flow</li>
-            <li>2 revision rounds</li>
-            <li>30-day bug support</li>
-          </ul>
-          <p class="pricing-excludes">Blog, Hindi copy & admin panel — add-on available</p>
-          <a href="#" class="btn btn-primary pricing-wa-btn" data-package="business" style="width:100%;justify-content:center;">Book on WhatsApp →</a>
-        </div>
-
-        <div class="pricing-card reveal">
-          <span class="pricing-badge">Premium</span>
-          <h3>E-Commerce / PWA</h3>
-          <div class="pricing-amount">₹34,999</div>
-          <p class="pricing-for">Online store, food ordering, bookings</p>
-          <p class="pricing-timeline">⏱ 4–6 weeks delivery</p>
-          <p class="pricing-includes-label">What's included</p>
-          <ul>
-            <li>Up to 50 products (you provide)</li>
-            <li>Cart + Razorpay setup</li>
-            <li>Order alerts (email / WhatsApp)</li>
-            <li>Installable PWA on mobile</li>
-            <li>3 revision rounds</li>
-            <li>30-day launch support</li>
-          </ul>
-          <p class="pricing-excludes">Unlimited products & delivery app — custom quote</p>
-          <a href="#" class="btn btn-outline pricing-wa-btn" data-package="ecommerce" style="width:100%;justify-content:center;">Book on WhatsApp →</a>
-        </div>
-      </div>
-
-      <div class="pricing-portal reveal">
-        <div class="pricing-portal-content">
-          <span class="pricing-badge">Beyond Packages</span>
-          <h3>Custom Solution</h3>
-          <p>Portals, dashboards, multi-login apps, or anything unique — <em class="hindi-touch">jo package mein fit na ho, woh yahan se shuru hota hai.</em> Pehle baat karte hain, phir scope aur price clear karte hain.</p>
-          <div class="pricing-portal-meta">
-            <span><strong>Let's discuss</strong></span>
-            <span>Tailored to your needs</span>
-            <span>Free discovery call</span>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-project">DSEU Rajokri Campus Portal</p>
+          <p>Multi-role campus system with student, faculty & admin dashboards — attendance, timetables, notices, and roster management for the entire campus.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">D</div>
+            <div class="author-info">
+              <strong>Institutional Project</strong>
+              <span>Delhi Skill & Entrepreneurship University</span>
+            </div>
           </div>
         </div>
-        <a href="#" class="btn btn-gold pricing-wa-btn" data-package="portal">Let's Discuss →</a>
-      </div>
-
-      <div class="pricing-maint reveal">
-        <div class="pricing-maint-card">
-          <div>
-            <strong>Monthly Maintenance — from ₹1,499/mo</strong>
-            <p>Updates, backups, small edits & peace of mind after your site goes live.</p>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-project">RC Innovation Club</p>
+          <p>Complete club website with events, team profiles, gallery, resources hub, certificate verification, and member registration — built for DSEU Rajokri students.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div class="author-info">
+              <strong>Student Club Platform</strong>
+              <span>DSEU Rajokri Campus</span>
+            </div>
           </div>
-          <a href="#" class="btn btn-outline pricing-wa-btn" data-package="maintenance">Ask on WhatsApp</a>
         </div>
-      </div>
-
-      <div class="pricing-deal reveal">
-        <h4>How every deal works</h4>
-        <ol>
-          <li><strong>Free call</strong> — you share idea, I suggest the right package</li>
-          <li><strong>50% advance</strong> — project starts after confirmation</li>
-          <li><strong>Build + revisions</strong> — updates on WhatsApp throughout</li>
-          <li><strong>50% on delivery</strong> — site goes live, you approve, done</li>
-        </ol>
-        <p class="pricing-note">Not sure which package? <a href="contact.html">Fill the form</a> or <a href="https://wa.me/919310644433" target="_blank" rel="noopener">message on WhatsApp</a> — no pressure.</p>
+        <div class="testimonial-card reveal">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-project">How I Work</p>
+          <p>Free consultation, clear package pricing, WhatsApp updates throughout, and post-launch support. You work directly with me — no agency middlemen.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">N</div>
+            <div class="author-info">
+              <strong>Nikhil</strong>
+              <span>Founder — NDS Innovation</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -557,10 +557,11 @@
       <div class="cta-banner premium-cta reveal">
         <div class="cta-sparkle"></div>
         <h2>Ready to Go Online?</h2>
-        <p>Most clients start with the <strong>Business Website (₹18,999)</strong> package — <em class="hindi-touch">aaj message karo, kal plan clear.</em></p>
+        <p>Business packages from <strong>₹18,999</strong> · Students from <strong>₹4,999</strong> — <em class="hindi-touch">aaj message karo, kal plan clear.</em></p>
         <div class="cta-actions">
           <a href="#" class="btn btn-gold pricing-wa-btn" data-package="business">Book on WhatsApp →</a>
-          <a href="#pricing" class="btn btn-outline">Compare All Packages</a>
+          <a href="pricing.html" class="btn btn-outline">View All Packages →</a>
+          <a href="pricing.html#student-pricing" class="btn btn-student">Student Prices →</a>
         </div>
       </div>
     </div>
@@ -587,7 +588,7 @@
             <li><a href="about.html">About Me</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="portfolio.html">My Work</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -617,6 +618,6 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="assets/js/main.js?v=6"></script>
 </body>
 </html>

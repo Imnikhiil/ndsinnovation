@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NDS Innovation Portfolio — Real projects and honest design concepts by Nikhil.">
+  <meta name="description" content="NDS Innovation Portfolio — DSEU Campus Portal, RC Innovation Club, agency site & design concepts by Nikhil.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ndsinnovation.onrender.com/portfolio.html">
+  <meta property="og:title" content="My Work | NDS Innovation">
+  <meta property="og:description" content="Live projects: DSEU Rajokri Campus Portal, RC Innovation Club & more.">
+  <meta property="og:image" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ndsinnovation.onrender.com/portfolio.html">
   <title>My Work | NDS Innovation</title>
   <link rel="icon" href="assets/images/nds-logo.png" type="image/png">
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');
@@ -29,7 +41,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
           <li><a href="portfolio.html" class="active">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html" class="btn btn-primary nav-cta magnetic-btn">Hire Me</a></li>
@@ -58,7 +70,25 @@
       <div class="portfolio-grid">
         <div class="portfolio-card premium-card reveal">
           <div class="portfolio-thumb portfolio-thumb-live">
-            <img src="assets/images/nds-logo.png" alt="NDS Innovation website" class="portfolio-thumb-img">
+            <img src="assets/images/rc-club.png" alt="RC Innovation Club website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="tag tag-live">Live</span>
+              <span class="tag">Club Website</span>
+              <span class="tag">PWA</span>
+            </div>
+            <h3>RC Innovation Club</h3>
+            <p class="portfolio-meta">DSEU Rajokri Campus — student innovation club.</p>
+            <p>Full club platform: events, core team & ambassadors, gallery, resources hub, certificate verification, membership forms, and multi-theme UI — <em class="hindi-touch">students ke liye complete digital home.</em></p>
+            <div class="portfolio-actions">
+              <a href="https://rc-innovation-club.onrender.com/" class="btn btn-outline" target="_blank" rel="noopener">View Site →</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card premium-card reveal">
+          <div class="portfolio-thumb portfolio-thumb-live">
+            <img src="assets/images/nds-logo.png" alt="NDS Innovation website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
           <div class="portfolio-info">
             <div class="portfolio-tags">
@@ -68,7 +98,7 @@
             </div>
             <h3>NDS Innovation Website</h3>
             <p class="portfolio-meta">Built & maintained by me — you're browsing it now.</p>
-            <p>Dark minimal agency site with page transitions, scroll animations, responsive layout, pricing section, and WhatsApp inquiry flow.</p>
+            <p>Dark minimal agency site with dedicated pricing page, student packages, page transitions, scroll animations, and WhatsApp inquiry flow.</p>
             <div class="portfolio-actions">
               <a href="index.html" class="btn btn-outline">View Site →</a>
             </div>
@@ -76,7 +106,7 @@
         </div>
         <div class="portfolio-card premium-card reveal">
           <div class="portfolio-thumb portfolio-thumb-live">
-            <img src="assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" class="portfolio-thumb-img">
+            <img src="assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
           <div class="portfolio-info">
             <div class="portfolio-tags">
@@ -159,6 +189,7 @@
             <li><a href="about.html">About Me</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="portfolio.html">My Work</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -186,6 +217,6 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="assets/js/main.js?v=5"></script>
+  <script src="assets/js/main.js?v=6"></script>
 </body>
 </html>
