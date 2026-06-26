@@ -2,8 +2,8 @@ const CACHE = 'nds-v2';
 const ASSETS = [
   './index.html',
   './pricing.html',
-  './assets/css/style.css?v=9',
-  './assets/js/main.js?v=7',
+  './assets/css/style.css',
+  './assets/js/main.js',
   './assets/images/nds-logo.png',
 ];
 
