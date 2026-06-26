@@ -5,11 +5,11 @@ const NDS = {
   email: 'ndsinnovationn@gmail.com',
   waGreeting: 'Hi Nikhil! I found NDS Innovation website and want to discuss a project.',
   packages: {
-    'student-portfolio': 'Hi Nikhil! I am a college student and want the Student Portfolio package (₹4,999). I can share my college ID.',
-    'student-club': 'Hi Nikhil! I am a college student and want the Club / Fest / Event Page package (₹5,999). I can share my college ID.',
+    'student-portfolio': 'Hi Nikhil! I am a college student and want the Student Portfolio package (₹3,499). I can share my college ID.',
+    'student-club': 'Hi Nikhil! I am a college student and want the Club / Fest / Event Page package (₹4,999). I can share my college ID.',
     'student-mini': 'Hi Nikhil! I am a college student and want the Mini Website package (₹9,999). I can share my college ID.',
-    'student-uiux': 'Hi Nikhil! I am a college student and want the UI/UX Design package (₹2,999). I can share my college ID.',
-    'student-pwa': 'Hi Nikhil! I am a college student and want the Student App / PWA package (₹19,999). I can share my college ID.',
+    'student-uiux': 'Hi Nikhil! I am a college student and want the UI/UX Design package (₹1,999). I can share my college ID.',
+    'student-pwa': 'Hi Nikhil! I am a college student and want the Student App / PWA package (₹18,999). I can share my college ID.',
     'student-custom': 'Hi Nikhil! I am a college student with a custom project idea. Can we discuss scope and student pricing? I can share my college ID.',
     starter: 'Hi Nikhil! I want the Landing Page package (₹7,999). Can we discuss my project?',
     business: 'Hi Nikhil! I want the Business Website package (₹18,999). Can we have a free consultation?',
@@ -364,15 +364,25 @@ function initHeroTyping() {
   setTimeout(type, 2000);
 }
 
-/* Enhanced particles — mouse reactive */
+/* Hero particle network — gold constellation with glow & smooth motion */
 function initHeroParticles() {
   const canvas = document.getElementById('heroParticles');
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
+  const GOLD = { r: 201, g: 168, b: 76 };
+  const LINK_DIST = 145;
+  const REPEL_RADIUS = 130;
+  const MOUSE_INFLUENCE = 200;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   let particles = [];
-  let animId;
-  let mouseX = -1000, mouseY = -1000;
+  let animId = null;
+  let mouseX = -1000;
+  let mouseY = -1000;
+  let smoothMouseX = -1000;
+  let smoothMouseY = -1000;
+  let time = 0;
 
   const hero = canvas.closest('.hero');
   if (hero) {
@@ -381,76 +391,169 @@ function initHeroParticles() {
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
     });
-    hero.addEventListener('mouseleave', () => { mouseX = -1000; mouseY = -1000; });
+    hero.addEventListener('mouseleave', () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    });
   }
 
   function resize() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = canvas.offsetWidth;
+    const h = canvas.offsetHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    canvas._w = w;
+    canvas._h = h;
   }
 
   function createParticles() {
+    const w = canvas._w;
+    const h = canvas._h;
     particles = [];
-    const count = Math.min(80, Math.floor(canvas.width / 16));
+    const count = Math.min(90, Math.max(50, Math.round((w * h) / 10000)));
     for (let i = 0; i < count; i++) {
+      const isGlow = Math.random() < 0.18;
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2.5 + 0.5,
-        dx: (Math.random() - 0.5) * 0.5,
-        dy: (Math.random() - 0.5) * 0.5,
-        opacity: Math.random() * 0.6 + 0.15,
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: isGlow ? Math.random() * 1.4 + 1.6 : Math.random() * 0.9 + 0.5,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        baseOpacity: Math.random() * 0.15 + 0.15,
+        pulse: Math.random() * Math.PI * 2,
+        pulseSpeed: Math.random() * 0.015 + 0.008,
+        drift: Math.random() * Math.PI * 2,
+        glow: isGlow,
       });
     }
   }
 
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  function wrapParticle(p, w, h) {
+    if (p.x < -10) p.x = w + 10;
+    if (p.x > w + 10) p.x = -10;
+    if (p.y < -10) p.y = h + 10;
+    if (p.y > h + 10) p.y = -10;
+  }
 
-    particles.forEach((p, i) => {
-      const distMouse = Math.hypot(p.x - mouseX, p.y - mouseY);
-      if (distMouse < 120) {
-        const force = (120 - distMouse) / 120;
-        p.x -= (mouseX - p.x) * force * 0.008;
-        p.y -= (mouseY - p.y) * force * 0.008;
+  function mouseProximity(x, y) {
+    if (smoothMouseX < 0) return 0;
+    const d = Math.hypot(x - smoothMouseX, y - smoothMouseY);
+    if (d >= MOUSE_INFLUENCE) return 0;
+    return (1 - d / MOUSE_INFLUENCE) ** 1.5;
+  }
+
+  function drawGlowDot(x, y, r, alpha) {
+    const grad = ctx.createRadialGradient(x, y, 0, x, y, r * 4);
+    grad.addColorStop(0, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${alpha * 0.9})`);
+    grad.addColorStop(0.35, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${alpha * 0.35})`);
+    grad.addColorStop(1, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, 0)`);
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.arc(x, y, r * 4, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${Math.min(alpha * 1.4, 0.45)})`;
+    ctx.fill();
+  }
+
+  function draw() {
+    const w = canvas._w;
+    const h = canvas._h;
+    time += reducedMotion ? 0 : 1;
+
+    smoothMouseX += (mouseX - smoothMouseX) * 0.12;
+    smoothMouseY += (mouseY - smoothMouseY) * 0.12;
+
+    ctx.clearRect(0, 0, w, h);
+
+    if (smoothMouseX >= 0) {
+      const aura = ctx.createRadialGradient(
+        smoothMouseX, smoothMouseY, 0,
+        smoothMouseX, smoothMouseY, MOUSE_INFLUENCE
+      );
+      aura.addColorStop(0, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, 0.06)`);
+      aura.addColorStop(0.5, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, 0.02)`);
+      aura.addColorStop(1, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, 0)`);
+      ctx.fillStyle = aura;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+
+      if (!reducedMotion) {
+        const distMouse = Math.hypot(p.x - smoothMouseX, p.y - smoothMouseY);
+        if (distMouse < REPEL_RADIUS && distMouse > 0) {
+          const force = ((REPEL_RADIUS - distMouse) / REPEL_RADIUS) ** 2;
+          const angle = Math.atan2(p.y - smoothMouseY, p.x - smoothMouseX);
+          p.x += Math.cos(angle) * force * 2.2;
+          p.y += Math.sin(angle) * force * 2.2;
+        }
+
+        p.x += p.vx + Math.sin(time * 0.008 + p.drift) * 0.12;
+        p.y += p.vy + Math.cos(time * 0.007 + p.drift) * 0.12;
+        wrapParticle(p, w, h);
       }
 
-      p.x += p.dx;
-      p.y += p.dy;
-      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+      p._opacity = p.baseOpacity + Math.sin(time * p.pulseSpeed + p.pulse) * 0.06;
+      p._proximity = mouseProximity(p.x, p.y);
+    }
 
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255, 255, 255, ${p.opacity * 0.25})`;
-      ctx.fill();
-
-      particles.slice(i + 1).forEach(p2 => {
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
         const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-        if (dist < 130) {
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          ctx.lineTo(p2.x, p2.y);
-          ctx.strokeStyle = `rgba(255, 255, 255, ${0.04 * (1 - dist / 130)})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
-      });
-    });
+        if (dist >= LINK_DIST) continue;
+
+        const fade = 1 - dist / LINK_DIST;
+        const boost = Math.max(p._proximity, p2._proximity, mouseProximity(
+          (p.x + p2.x) * 0.5, (p.y + p2.y) * 0.5
+        ));
+        const alpha = fade * (0.06 + boost * 0.14);
+
+        const grad = ctx.createLinearGradient(p.x, p.y, p2.x, p2.y);
+        grad.addColorStop(0, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${alpha * (0.6 + p._proximity * 0.8)})`);
+        grad.addColorStop(1, `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${alpha * (0.6 + p2._proximity * 0.8)})`);
+
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 0.5 + fade * 0.4;
+        ctx.stroke();
+      }
+    }
+
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const alpha = Math.min(p._opacity + p._proximity * 0.18, 0.38);
+
+      if (p.glow) {
+        drawGlowDot(p.x, p.y, p.r, alpha);
+      } else {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${GOLD.r}, ${GOLD.g}, ${GOLD.b}, ${alpha})`;
+        ctx.fill();
+      }
+    }
 
     animId = requestAnimationFrame(draw);
   }
 
-  resize();
-  createParticles();
-  draw();
-
-  window.addEventListener('resize', () => {
-    cancelAnimationFrame(animId);
+  function start() {
+    if (animId) cancelAnimationFrame(animId);
     resize();
     createParticles();
     draw();
-  });
+  }
+
+  start();
+  window.addEventListener('resize', start);
 }
 
 /* Smooth parallax */
