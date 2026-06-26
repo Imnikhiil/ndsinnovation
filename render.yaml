@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: ndsinnovation
+    runtime: static
+    staticPublishPath: .
+    routes:
+      - type: redirect
+        source: /index.html
+        destination: /
+      - type: redirect
+        source: /about.html
+        destination: /about
+      - type: redirect
+        source: /services.html
+        destination: /services
+      - type: redirect
+        source: /pricing.html
+        destination: /pricing
+      - type: redirect
+        source: /portfolio.html
+        destination: /portfolio
+      - type: redirect
+        source: /contact.html
+        destination: /contact

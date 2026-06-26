@@ -1,10 +1,14 @@
-const CACHE = 'nds-v2';
+const CACHE = 'nds-v3';
 const ASSETS = [
-  './index.html',
-  './pricing.html',
-  './assets/css/style.css',
-  './assets/js/main.js',
-  './assets/images/nds-logo.png',
+  '/',
+  '/about/',
+  '/services/',
+  '/pricing/',
+  '/portfolio/',
+  '/contact/',
+  '/assets/css/style.css',
+  '/assets/js/main.js',
+  '/assets/images/nds-logo.png',
 ];
 
 self.addEventListener('install', (e) => {
