@@ -1,8 +1,9 @@
-const CACHE = 'nds-v1';
+const CACHE = 'nds-v2';
 const ASSETS = [
   './index.html',
-  './assets/css/style.css',
-  './assets/js/main.js',
+  './pricing.html',
+  './assets/css/style.css?v=9',
+  './assets/js/main.js?v=7',
   './assets/images/nds-logo.png',
 ];
 
@@ -11,7 +12,11 @@ self.addEventListener('install', (e) => {
 });
 
 self.addEventListener('activate', (e) => {
-  e.waitUntil(self.clients.claim());
+  e.waitUntil(
+    caches.keys()
+      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then(() => self.clients.claim())
+  );
 });
 
 self.addEventListener('fetch', (e) => {
