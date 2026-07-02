@@ -1,4 +1,4 @@
-/* NDS — Nikhil Digital Solution | Ultra WOW Interactions */
+/* NDS Innovation — site interactions */
 
 const NDS = {
   whatsapp: '919310644433',
@@ -335,7 +335,7 @@ function initHeroTyping() {
   const el = document.getElementById('typingText');
   if (!el) return;
 
-  const words = ['Websites', 'PWA Apps', 'E-Commerce', 'UI/UX Design', 'Custom Code'];
+  const words = ['businesses', 'campuses', 'students', 'startups'];
   let wordIndex = 0, charIndex = 0, deleting = false;
 
   function type() {

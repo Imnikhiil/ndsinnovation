@@ -34,7 +34,7 @@
   --transition-reveal: 0.85s var(--ease-out-expo);
   --transition-page: 0.55s var(--ease-out-expo);
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-  /* Syne: hero only — clips g, y, p, 9 in Chrome/Edge when used on cards & headings */
+/* Syne: logo & small accents only — hero uses Plus Jakarta (no descender clip) */
   --font-display: 'Syne', sans-serif;
   --header-height: 72px;
 }
@@ -545,6 +545,15 @@ a.btn-student:hover {
   max-width: 780px;
 }
 
+.hero-eyebrow {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
@@ -559,15 +568,10 @@ a.btn-student:hover {
 }
 
 .hero-badge-dot {
-  width: 8px;
-  height: 8px;
-  background: #22c55e;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
+  display: none;
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4rem);
   margin-bottom: 20px;
 }
 
@@ -1933,31 +1937,42 @@ section:nth-child(even) {
   opacity: 0.2;
 }
 
-/* Syne ONLY on hero title — everywhere else uses Plus Jakarta (fixes g/y/p/9 clip + subscript digits) */
+/* Hero title — Plus Jakarta for clean rendering (Syne clips g, y, p on some browsers) */
 .hero-title {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-  line-height: 1.2;
-  padding-bottom: 0.15em;
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.85rem);
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  padding-bottom: 0.12em;
   overflow: visible;
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 0;
+}
+
+.hero-line {
+  display: block;
+}
+
+.hero-line-typing {
+  white-space: nowrap;
 }
 
 .hero-title .gradient-text,
 .hero-title .typing-text {
   font-family: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
 }
 
 .typing-text {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
-  min-width: 200px;
-  padding-bottom: 0.12em;
-  border-right: 3px solid var(--text-muted);
+  color: #E7E5E4;
+  -webkit-text-fill-color: #E7E5E4;
+  background: none;
+  background-clip: unset;
+  display: inline;
+  vertical-align: baseline;
+  border-right: 2px solid var(--accent-secondary);
+  margin-right: 1px;
+  padding-right: 2px;
   animation: blinkCursor 0.8s step-end infinite;
 }
 
@@ -2473,7 +2488,7 @@ section:nth-child(even) {
   }
 
   .hero-title {
-    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    font-size: clamp(1.65rem, 6.5vw, 2.15rem);
   }
 
   .hero-showcase {
@@ -3786,8 +3801,8 @@ section:nth-child(even) {
   }
 
   .hero-title {
-    font-size: clamp(1.75rem, 7.5vw, 2.35rem);
-    line-height: 1.25;
+    font-size: clamp(1.5rem, 7vw, 1.85rem);
+    line-height: 1.28;
     word-break: break-word;
   }
 
@@ -3795,10 +3810,19 @@ section:nth-child(even) {
     overflow-wrap: anywhere;
   }
 
+  .hero-line-typing {
+    white-space: normal;
+  }
+
   .typing-text {
-    min-width: 0;
     display: inline;
     border-right-width: 2px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
   }
 
   .hero-badge {
@@ -3840,7 +3864,7 @@ section:nth-child(even) {
   }
 
   .hero-title {
-    font-size: clamp(1.6rem, 8vw, 2rem);
+    font-size: clamp(1.45rem, 7.5vw, 1.75rem);
   }
 
   .hero-stats {
