@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=9">
+  <link rel="stylesheet" href="/assets/css/style.css?v=18">
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');
@@ -55,14 +55,69 @@
     </div>
   </header>
 
-  <section class="page-header">
+  <section class="page-header section-aurora">
     <div class="container">
       <span class="section-label">Transparent Pricing</span>
       <h1>Packages & <span class="gradient-text">Pricing</span></h1>
       <p>Fixed starting prices — scope and timeline discussed before you pay anything.</p>
       <div class="pricing-page-jump reveal">
+        <button type="button" class="btn btn-primary" id="calcToggle" aria-expanded="false" aria-controls="calculator">Price Calculator</button>
         <a href="#pricing" class="btn btn-outline">Regular Packages</a>
         <a href="#student-pricing" class="btn btn-student">For College Students →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Price Calculator (collapsed by default) -->
+  <section id="calculator" class="section-aurora calc-section" hidden>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Estimate</span>
+        <h2 class="section-title">Project <span class="gradient-text">Calculator</span></h2>
+        <p class="section-subtitle">Pick your needs — get a ballpark price instantly. Final quote after we chat.</p>
+      </div>
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <div class="calc-group">
+            <label for="calcType">Project Type</label>
+            <select id="calcType">
+              <option value="7999">Landing Page — from ₹7,999</option>
+              <option value="18999" selected>Business Website — from ₹18,999</option>
+              <option value="34999">E-Commerce / PWA — from ₹34,999</option>
+              <option value="45000">Portal / Dashboard — from ₹45,000</option>
+              <option value="60000">Custom Solution — from ₹60,000</option>
+            </select>
+          </div>
+          <div class="calc-group">
+            <label for="calcPages">Number of Pages <span id="calcPagesVal">5</span></label>
+            <input type="range" id="calcPages" min="1" max="20" value="5">
+          </div>
+          <div class="calc-group">
+            <label>Extra Features</label>
+            <div class="calc-checks">
+              <label class="calc-check"><input type="checkbox" data-price="2500" value="seo"> SEO Setup (+₹2,500)</label>
+              <label class="calc-check"><input type="checkbox" data-price="4000" value="blog"> Blog Section (+₹4,000)</label>
+              <label class="calc-check"><input type="checkbox" data-price="8000" value="admin"> Admin Panel (+₹8,000)</label>
+              <label class="calc-check"><input type="checkbox" data-price="3000" value="whatsapp"> WhatsApp Flow (+₹3,000)</label>
+              <label class="calc-check"><input type="checkbox" data-price="12000" value="pwa"> PWA / Installable (+₹12,000)</label>
+              <label class="calc-check"><input type="checkbox" data-price="6000" value="payment"> Payment Gateway (+₹6,000)</label>
+            </div>
+          </div>
+          <div class="calc-group">
+            <label for="calcTimeline">Timeline</label>
+            <select id="calcTimeline">
+              <option value="1">Standard — normal delivery</option>
+              <option value="1.2">Rush — 20% faster (+20%)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-result">
+          <span class="calc-result-label">Estimated Price</span>
+          <div class="calc-result-price" id="calcPrice">₹18,999</div>
+          <p class="calc-result-note">Ballpark only — final price after free consultation.</p>
+          <p class="calc-result-timeline" id="calcTimelineText">⏱ ~2–3 weeks delivery</p>
+          <a href="#" class="btn btn-gold" id="calcWaBtn" style="width:100%;justify-content:center;margin-top:20px;">Discuss on WhatsApp →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -426,6 +481,6 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="/assets/js/main.js?v=7"></script>
+  <script src="/assets/js/main.js?v=12"></script>
 </body>
 </html>

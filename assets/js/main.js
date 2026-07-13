@@ -41,6 +41,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initBeamAngle();
   initMagneticButtons();
   initFaq();
+  initWorkMarquee();
+  initHeroMockup();
+  initCompareSlider();
+  initProcessAnimation();
+  initCalculatorToggle();
+  initPricingCalculator();
+  initPortfolioFilters();
+  initCaseStudyTabs();
   initPwa();
 });
 
@@ -763,6 +771,298 @@ function initFaq() {
       }
     });
   });
+}
+
+/* Auto-scrolling marquees — clones cards for a seamless loop */
+function initWorkMarquee() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.work-marquee').forEach((marquee) => {
+    const track = marquee.querySelector('.work-marquee-track');
+    if (!track || track.dataset.marqueeReady) return;
+    track.dataset.marqueeReady = '1';
+
+    const originals = [...track.children];
+    originals.forEach((card) => {
+      const clone = card.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      clone.querySelectorAll('a').forEach(a => a.setAttribute('tabindex', '-1'));
+      track.appendChild(clone);
+    });
+
+    const setDuration = () => {
+      const halfWidth = track.scrollWidth / 2;
+      const speed = 70;
+      const duration = Math.max(30, Math.round(halfWidth / speed));
+      track.style.setProperty('--marquee-duration', duration + 's');
+    };
+
+    setDuration();
+    window.addEventListener('resize', setDuration, { passive: true });
+  });
+}
+
+/* Hero mockup — cycles through live project screenshots */
+function initHeroMockup() {
+  const carousel = document.getElementById('mockupCarousel');
+  if (!carousel) return;
+
+  const slides = [...carousel.querySelectorAll('.mockup-slide')];
+  const dots = document.querySelectorAll('#mockupDots .mockup-dot');
+  const urlEl = document.getElementById('mockupUrl');
+  if (!slides.length) return;
+
+  let index = 0;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function show(i) {
+    slides.forEach((s, n) => s.classList.toggle('active', n === i));
+    dots.forEach((d, n) => d.classList.toggle('active', n === i));
+    if (urlEl) urlEl.textContent = slides[i].dataset.url || 'ndsinnovation.com';
+  }
+
+  if (reduceMotion) return;
+
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    show(index);
+  }, 3500);
+}
+
+/* Before/After comparison slider */
+function initCompareSlider() {
+  const slider = document.getElementById('compareSlider');
+  const range = document.getElementById('compareRange');
+  const handle = document.getElementById('compareHandle');
+  if (!slider || !range) return;
+
+  function update() {
+    const val = range.value;
+    slider.style.setProperty('--compare-pos', val + '%');
+    if (handle) handle.style.left = val + '%';
+  }
+
+  range.addEventListener('input', update);
+  update();
+}
+
+/* Process timeline — sequential step animation */
+function initProcessAnimation() {
+  const timeline = document.getElementById('processTimeline');
+  if (!timeline) return;
+
+  const steps = [...timeline.querySelectorAll('.process-step')];
+  const fill = document.getElementById('processProgress');
+  if (!steps.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function setStep(index) {
+    steps.forEach((step, i) => {
+      step.classList.toggle('is-active', i === index);
+      step.classList.toggle('is-done', i < index);
+    });
+    if (fill && steps.length > 1) {
+      fill.style.width = (index / (steps.length - 1)) * 100 + '%';
+    }
+  }
+
+  function runSequence() {
+    setStep(0);
+    steps.forEach((_, i) => {
+      if (i === 0) return;
+      setTimeout(() => setStep(i), i * 700);
+    });
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(timeline);
+      if (reduceMotion) {
+        setStep(steps.length - 1);
+      } else {
+        runSequence();
+      }
+    });
+  }, { threshold: 0.35 });
+
+  observer.observe(timeline);
+
+  steps.forEach((step, i) => {
+    step.addEventListener('mouseenter', () => setStep(i));
+  });
+
+  timeline.addEventListener('mouseleave', () => {
+    setStep(steps.length - 1);
+  });
+}
+
+/* Collapsible price calculator toggle */
+function initCalculatorToggle() {
+  const toggle = document.getElementById('calcToggle');
+  const section = document.getElementById('calculator');
+  if (!toggle || !section) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !section.hidden;
+
+    if (isOpen) {
+      section.hidden = true;
+      section.classList.remove('calc-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.textContent = 'Price Calculator';
+    } else {
+      section.hidden = false;
+      section.classList.add('calc-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.textContent = 'Hide Calculator';
+      requestAnimationFrame(() => {
+        const top = section.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    }
+  });
+}
+
+/* Interactive pricing calculator */
+function initPricingCalculator() {
+  const typeEl = document.getElementById('calcType');
+  if (!typeEl) return;
+
+  const pagesEl = document.getElementById('calcPages');
+  const pagesVal = document.getElementById('calcPagesVal');
+  const timelineEl = document.getElementById('calcTimeline');
+  const priceEl = document.getElementById('calcPrice');
+  const timelineText = document.getElementById('calcTimelineText');
+  const waBtn = document.getElementById('calcWaBtn');
+  const checks = document.querySelectorAll('.calc-check input');
+
+  const timelines = {
+    7999: '7–10 days',
+    18999: '2–3 weeks',
+    34999: '4–6 weeks',
+    45000: '4–8 weeks',
+    60000: '6–10 weeks',
+  };
+
+  function formatINR(n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+
+  function calculate() {
+    let base = parseInt(typeEl.value, 10);
+    const pages = parseInt(pagesEl.value, 10);
+    const multiplier = parseFloat(timelineEl.value);
+
+    if (pages > 5 && base === 18999) base += (pages - 5) * 2000;
+    if (pages > 1 && base === 7999) base += (pages - 1) * 1500;
+
+    let extras = 0;
+    const features = [];
+    checks.forEach((cb) => {
+      if (cb.checked) {
+        extras += parseInt(cb.dataset.price, 10);
+        features.push(cb.value);
+      }
+    });
+
+    const total = Math.round((base + extras) * multiplier);
+    priceEl.textContent = formatINR(total);
+
+    const baseKey = parseInt(typeEl.value, 10);
+    timelineText.textContent = '⏱ ~' + (timelines[baseKey] || '2–4 weeks') + ' delivery';
+
+    const typeName = typeEl.options[typeEl.selectedIndex].text.split('—')[0].trim();
+    const msg = [
+      'Hi Nikhil! I used your price calculator on NDS Innovation:',
+      '',
+      `Project: ${typeName}`,
+      `Pages: ${pages}`,
+      `Features: ${features.length ? features.join(', ') : 'Standard package'}`,
+      `Timeline: ${timelineEl.options[timelineEl.selectedIndex].text}`,
+      `Estimated: ${formatINR(total)}`,
+      '',
+      'Can we discuss the final scope and quote?',
+    ].join('\n');
+
+    waBtn.href = `https://wa.me/${NDS.whatsapp}?text=${encodeURIComponent(msg)}`;
+    waBtn.target = '_blank';
+    waBtn.rel = 'noopener';
+  }
+
+  [typeEl, pagesEl, timelineEl, ...checks].forEach((el) => {
+    el.addEventListener('input', () => {
+      if (pagesVal) pagesVal.textContent = pagesEl.value;
+      calculate();
+    });
+    el.addEventListener('change', calculate);
+  });
+
+  if (pagesVal) pagesVal.textContent = pagesEl.value;
+  calculate();
+}
+
+/* Portfolio category filters */
+function initPortfolioFilters() {
+  const filters = document.getElementById('portfolioFilters');
+  const grid = document.getElementById('portfolioGrid');
+  if (!filters || !grid) return;
+
+  const cards = [...grid.querySelectorAll('.portfolio-card')];
+  const buttons = [...filters.querySelectorAll('.portfolio-filter')];
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
+      });
+
+      cards.forEach((card) => {
+        const cats = (card.dataset.category || '').split(' ');
+        const show = filter === 'all' || cats.includes(filter);
+        card.style.display = show ? '' : 'none';
+        if (show) card.classList.add('visible');
+      });
+    });
+  });
+}
+
+/* Case study tabs */
+function initCaseStudyTabs() {
+  const tabs = document.querySelectorAll('.case-tab');
+  if (!tabs.length) return;
+
+  const panels = {
+    dseu: document.getElementById('case-dseu'),
+    'rc-club': document.getElementById('case-rc-club'),
+    apex: document.getElementById('case-apex'),
+    nds: document.getElementById('case-nds'),
+  };
+
+  function activate(key) {
+    tabs.forEach(t => {
+      const on = t.dataset.case === key;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Object.entries(panels).forEach(([k, panel]) => {
+      if (!panel) return;
+      const on = k === key;
+      panel.classList.toggle('active', on);
+      panel.hidden = !on;
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => activate(tab.dataset.case));
+  });
+
+  const hash = window.location.hash.replace('#case-', '');
+  const map = { dseu: 'dseu', 'rc-club': 'rc-club', apex: 'apex', nds: 'nds' };
+  if (hash && map[hash]) activate(map[hash]);
 }
 
 /* PWA service worker */

@@ -32,7 +32,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=13">
+  <link rel="stylesheet" href="/assets/css/style.css?v=17">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,6 +85,7 @@
           <li><a href="/services">Services</a></li>
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/portfolio">Work</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/contact" class="btn btn-primary nav-cta magnetic-btn">Hire Me</a></li>
         </ul>
@@ -125,7 +126,7 @@
           </div>
           <div class="hero-stats hero-anim" style="--d:0.8s">
             <div class="stat-item">
-              <strong>3+</strong>
+              <strong>4+</strong>
               <span>Live Projects</span>
             </div>
             <div class="stat-item">
@@ -143,33 +144,25 @@
             <div class="showcase-glow"></div>
 
             <!-- Browser mockup -->
-            <div class="browser-mockup">
+            <div class="browser-mockup" id="heroMockup">
               <div class="browser-bar">
                 <span class="browser-dot"></span>
                 <span class="browser-dot"></span>
                 <span class="browser-dot"></span>
-                <span class="browser-url">ndsinnovation.com</span>
+                <span class="browser-url" id="mockupUrl">ndsinnovation.com</span>
               </div>
-              <div class="browser-screen">
-                <div class="screen-nav">
-                  <span class="screen-logo">NDS</span>
-                  <span class="screen-link"></span>
-                  <span class="screen-link"></span>
-                  <span class="screen-btn">Hire Me</span>
+              <div class="browser-screen browser-screen-live">
+                <div class="mockup-carousel" id="mockupCarousel">
+                  <img src="/assets/images/nds-logo.png" alt="NDS Innovation" class="mockup-slide active" data-url="ndsinnovation.com">
+                  <img src="/assets/images/dseu-portal.png" alt="DSEU Portal" class="mockup-slide" data-url="dseu-rajokri-campus-portal.onrender.com">
+                  <img src="/assets/images/rc-club.png" alt="RC Innovation Club" class="mockup-slide" data-url="rc-innovation-club.onrender.com">
+                  <img src="/assets/images/apex-insights.png" alt="Apex Insights" class="mockup-slide" data-url="myapexinsights.com">
                 </div>
-                <div class="screen-hero">
-                  <div class="screen-line w80"></div>
-                  <div class="screen-line w60"></div>
-                  <div class="screen-line w40"></div>
-                  <div class="screen-cta-row">
-                    <span class="screen-cta"></span>
-                    <span class="screen-cta outline"></span>
-                  </div>
-                </div>
-                <div class="screen-cards">
-                  <div class="screen-card"></div>
-                  <div class="screen-card"></div>
-                  <div class="screen-card"></div>
+                <div class="mockup-dots" id="mockupDots" aria-hidden="true">
+                  <span class="mockup-dot active"></span>
+                  <span class="mockup-dot"></span>
+                  <span class="mockup-dot"></span>
+                  <span class="mockup-dot"></span>
                 </div>
               </div>
             </div>
@@ -189,7 +182,7 @@
             </div>
             <div class="float-badge badge-4">
               <span>⚡</span>
-              <div><strong>3+ Live</strong><small>Real projects</small></div>
+              <div><strong>4+ Live</strong><small>Real projects</small></div>
             </div>
           </div>
         </div>
@@ -217,16 +210,94 @@
     </div>
   </div>
 
+  <!-- Before / After -->
+  <section id="before-after" class="section-aurora">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">The Difference</span>
+        <h2 class="section-title">Template Site vs <span class="gradient-text">NDS-Built</span></h2>
+        <p class="section-subtitle">Drag the slider — see what changes when you hire a real developer instead of a generic template.</p>
+      </div>
+      <div class="compare-slider reveal" id="compareSlider">
+        <div class="compare-panel compare-before">
+          <span class="compare-label compare-label-bad">Generic Template</span>
+          <div class="compare-site compare-site-bad">
+            <div class="compare-browser">
+              <div class="compare-browser-dots"><span></span><span></span><span></span></div>
+              <span class="compare-browser-url">free-template-123.com</span>
+            </div>
+            <div class="compare-site-inner">
+              <div class="bad-popup">🎉 CLICK HERE!!! 50% OFF!!!</div>
+              <nav class="bad-nav">
+                <span class="bad-logo">MyBiz</span>
+                <span>Home</span><span>About</span><span>Services</span><span>Gallery</span><span>Blog</span><span>Contact</span>
+              </nav>
+              <div class="bad-hero">
+                <h2>WELCOME TO OUR WEBSITE!!!</h2>
+                <p>We are the best company in the world since 1999</p>
+                <button class="bad-btn">CLICK NOW →</button>
+              </div>
+              <div class="bad-cards">
+                <div class="bad-card"><div class="bad-img">📷</div><span>Service 1</span></div>
+                <div class="bad-card"><div class="bad-img">📷</div><span>Service 2</span></div>
+                <div class="bad-card"><div class="bad-img">📷</div><span>Service 3</span></div>
+              </div>
+              <p class="compare-caption bad-caption">Slow · Cluttered · No branding · Mobile broken</p>
+            </div>
+          </div>
+        </div>
+        <div class="compare-panel compare-after">
+          <span class="compare-label compare-label-good">NDS Innovation</span>
+          <div class="compare-site compare-site-good">
+            <div class="compare-browser">
+              <div class="compare-browser-dots"><span></span><span></span><span></span></div>
+              <span class="compare-browser-url">mybiz.com</span>
+            </div>
+            <div class="compare-site-inner">
+              <nav class="good-nav">
+                <span class="good-logo">MyBiz</span>
+                <span class="good-nav-links"><i></i><i></i><i></i></span>
+                <span class="good-nav-cta">Contact</span>
+              </nav>
+              <div class="good-hero">
+                <h2>Grow your business online</h2>
+                <p>Trusted service since 1999 — clean, fast &amp; mobile-first.</p>
+                <div class="good-btns">
+                  <span class="good-btn-primary">Get a Quote</span>
+                  <span class="good-btn-outline">Our Work</span>
+                </div>
+              </div>
+              <div class="good-stats">
+                <div><strong>25+</strong><small>Years</small></div>
+                <div><strong>500+</strong><small>Clients</small></div>
+                <div><strong>4.9★</strong><small>Rating</small></div>
+              </div>
+              <div class="good-cards">
+                <div class="good-card"><span>💼</span><small>Service 1</small></div>
+                <div class="good-card"><span>⚙️</span><small>Service 2</small></div>
+                <div class="good-card"><span>📈</span><small>Service 3</small></div>
+              </div>
+              <p class="compare-caption good-caption">Fast · Clean · On-brand · Mobile-first</p>
+            </div>
+          </div>
+        </div>
+        <input type="range" class="compare-range" id="compareRange" min="0" max="100" value="50" aria-label="Compare template vs NDS-built website">
+        <div class="compare-handle" id="compareHandle" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- Services -->
-  <section id="services">
+  <section id="services" class="section-aurora">
     <div class="container">
       <div class="section-header">
         <span class="section-label">What I Offer</span>
         <h2 class="section-title title-reveal">What I <span class="gradient-text animated-gradient">Build</span></h2>
         <p class="section-subtitle">Websites, apps, and campus tools — priced clearly, built by one person.</p>
       </div>
-      <div class="services-grid">
-        <div class="service-card premium-card border-beam reveal">
+      <div class="work-marquee services-marquee reveal" id="servicesMarquee">
+        <div class="work-marquee-track">
+        <div class="service-card premium-card border-beam">
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <div class="service-icon">🌐</div>
@@ -239,7 +310,7 @@
           </ul>
           <a href="/services#website" class="service-link">Explore →</a>
         </div>
-        <div class="service-card premium-card border-beam reveal">
+        <div class="service-card premium-card border-beam">
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <div class="service-icon">📱</div>
@@ -252,7 +323,7 @@
           </ul>
           <a href="/services#pwa" class="service-link">Explore →</a>
         </div>
-        <div class="service-card premium-card border-beam reveal">
+        <div class="service-card premium-card border-beam">
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <div class="service-icon">🛒</div>
@@ -265,7 +336,7 @@
           </ul>
           <a href="/services#ecommerce" class="service-link">Explore →</a>
         </div>
-        <div class="service-card premium-card border-beam reveal">
+        <div class="service-card premium-card border-beam">
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <div class="service-icon">🎨</div>
@@ -278,7 +349,7 @@
           </ul>
           <a href="/services#uiux" class="service-link">Explore →</a>
         </div>
-        <div class="service-card premium-card border-beam reveal">
+        <div class="service-card premium-card border-beam">
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <div class="service-icon">🔧</div>
@@ -291,7 +362,7 @@
           </ul>
           <a href="/services#maintenance" class="service-link">Explore →</a>
         </div>
-        <div class="service-card premium-card border-beam reveal">
+        <div class="service-card premium-card border-beam">
           <div class="card-glow"></div>
           <div class="card-shine"></div>
           <div class="service-icon">⚡</div>
@@ -304,12 +375,17 @@
           </ul>
           <a href="/services#custom" class="service-link">Explore →</a>
         </div>
+        </div>
+      </div>
+      <div class="section-inline-cta reveal">
+        <p>Need something custom that doesn't fit a package?</p>
+        <a href="/contact" class="btn btn-outline">Let's build it →</a>
       </div>
     </div>
   </section>
 
   <!-- Why Me -->
-  <section id="why-me">
+  <section id="why-me" class="section-aurora">
     <div class="container">
       <div class="section-header">
         <span class="section-label">Why Choose Me</span>
@@ -342,53 +418,60 @@
   </section>
 
   <!-- Process -->
-  <section id="process">
+  <section id="process" class="section-aurora">
     <div class="container">
       <div class="section-header">
         <span class="section-label">My Process</span>
         <h2 class="section-title">How We'll <span class="gradient-text">Work Together</span></h2>
         <p class="section-subtitle">Five steps — no confusing agency process.</p>
       </div>
-      <div class="process-timeline">
-        <div class="process-step reveal-scale">
-          <div class="process-number">01</div>
+      <div class="process-wrap reveal-scale">
+        <div class="process-rail" aria-hidden="true">
+          <span class="process-rail-bg"></span>
+          <span class="process-rail-fill" id="processProgress"></span>
+        </div>
+        <div class="process-timeline" id="processTimeline">
+        <div class="process-step" data-step="1">
+          <div class="process-number"><span>01</span></div>
           <h3>Chat</h3>
           <p>Tell me your vision. Free consultation, no pressure.</p>
         </div>
-        <div class="process-step reveal-scale">
-          <div class="process-number">02</div>
+        <div class="process-step" data-step="2">
+          <div class="process-number"><span>02</span></div>
           <h3>Design</h3>
           <p>Mockups first. You approve, then I start coding.</p>
         </div>
-        <div class="process-step reveal-scale">
-          <div class="process-number">03</div>
+        <div class="process-step" data-step="3">
+          <div class="process-number"><span>03</span></div>
           <h3>Build</h3>
           <p>I build, test, and send you updates on WhatsApp as I go.</p>
         </div>
-        <div class="process-step reveal-scale">
-          <div class="process-number">04</div>
+        <div class="process-step" data-step="4">
+          <div class="process-number"><span>04</span></div>
           <h3>Launch</h3>
           <p>Deploy, hand over files, and fix anything that breaks in the first month.</p>
         </div>
-        <div class="process-step reveal-scale">
-          <div class="process-number">05</div>
+        <div class="process-step" data-step="5">
+          <div class="process-number"><span>05</span></div>
           <h3>Support</h3>
           <p>I'm here after launch too. Hamesha ek message door.</p>
+        </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Work Preview -->
-  <section id="work-preview">
+  <section id="work-preview" class="section-aurora">
     <div class="container">
       <div class="section-header">
         <span class="section-label">My Work</span>
         <h2 class="section-title">Real Work & <span class="gradient-text">Concepts</span></h2>
         <p class="section-subtitle">Honest showcase — live projects I've built, plus design concepts to show my style.</p>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card premium-card border-beam reveal">
+      <div class="work-marquee reveal" id="workMarquee">
+        <div class="work-marquee-track">
+        <div class="portfolio-card premium-card border-beam">
           <div class="portfolio-thumb portfolio-thumb-live">
             <div class="thumb-shine"></div>
             <img src="/assets/images/nds-logo.png" alt="NDS Innovation website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
@@ -406,7 +489,7 @@
             </div>
           </div>
         </div>
-        <div class="portfolio-card premium-card border-beam reveal">
+        <div class="portfolio-card premium-card border-beam">
           <div class="portfolio-thumb portfolio-thumb-live">
             <div class="thumb-shine"></div>
             <img src="/assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
@@ -425,7 +508,7 @@
             </div>
           </div>
         </div>
-        <div class="portfolio-card premium-card border-beam reveal">
+        <div class="portfolio-card premium-card border-beam">
           <div class="portfolio-thumb portfolio-thumb-live">
             <div class="thumb-shine"></div>
             <img src="/assets/images/rc-club.png" alt="RC Innovation Club website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
@@ -443,7 +526,26 @@
             </div>
           </div>
         </div>
-        <div class="portfolio-card premium-card border-beam reveal">
+        <div class="portfolio-card premium-card border-beam">
+          <div class="portfolio-thumb portfolio-thumb-live">
+            <div class="thumb-shine"></div>
+            <img src="/assets/images/apex-insights.png" alt="Apex Insights website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="tag tag-live">Live</span>
+              <span class="tag">Website</span>
+              <span class="tag">Platform</span>
+            </div>
+            <h3>Apex Insights</h3>
+            <p class="portfolio-meta">Market research & survey redirect platform for panel-based studies.</p>
+            <p>Client site with panel redirect tracking, eligibility checks, live studies showcase, project brief flow, and secure respondent routing for quantitative & qualitative research.</p>
+            <div class="portfolio-actions">
+              <a href="https://myapexinsights.com/" class="btn btn-outline" target="_blank" rel="noopener">View Site →</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card premium-card border-beam">
           <div class="portfolio-thumb portfolio-thumb-concept">
             <div class="thumb-shine"></div>
             <span>🍽️</span>
@@ -459,9 +561,11 @@
             <p>Menu browsing, order tracking, and installable app experience for local restaurants.</p>
           </div>
         </div>
+        </div>
       </div>
       <div style="text-align: center; margin-top: 48px;" class="reveal">
         <a href="/portfolio" class="btn btn-outline">View All Work →</a>
+        <a href="/case-studies" class="btn btn-outline" style="margin-left:12px;">Read Case Studies →</a>
       </div>
     </div>
   </section>
@@ -580,6 +684,7 @@
             <li><a href="/about">About Me</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/portfolio">My Work</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
@@ -610,6 +715,6 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="/assets/js/main.js?v=9"></script>
+  <script src="/assets/js/main.js?v=11"></script>
 </body>
 </html>

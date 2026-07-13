@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NDS Innovation Case Studies — DSEU Campus Portal, RC Innovation Club, Apex Insights & more. Problem, solution, tech stack & live links.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ndsinnovation.onrender.com/case-studies">
+  <meta property="og:title" content="Case Studies | NDS Innovation">
+  <meta property="og:description" content="Real projects broken down — problem, solution, features & tech.">
+  <meta property="og:image" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
+  <meta property="og:url" content="https://ndsinnovation.onrender.com/case-studies">
+  <title>Case Studies | NDS Innovation</title>
+  <link rel="icon" href="/assets/images/nds-logo.png" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=14">
+  <script>
+    if (sessionStorage.getItem('nds-page-nav') === '1') {
+      document.documentElement.classList.add('nav-transition');
+    }
+  </script>
+</head>
+<body>
+
+  <div class="page-transition" id="pageTransition" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <img src="/assets/images/nds-logo.png" alt="NDS Innovation" class="logo-img">
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/portfolio">Work</a></li>
+          <li><a href="/case-studies" class="active">Case Studies</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/contact" class="btn btn-primary nav-cta magnetic-btn">Hire Me</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-header section-aurora">
+    <div class="container">
+      <span class="section-label">Deep Dives</span>
+      <h1>Project <span class="gradient-text">Case Studies</span></h1>
+      <p>Real work broken down — problem, solution, features, tech stack & live links.</p>
+    </div>
+  </section>
+
+  <section class="section-aurora">
+    <div class="container">
+      <div class="case-tabs reveal" role="tablist" aria-label="Case studies">
+        <button class="case-tab active" role="tab" aria-selected="true" data-case="dseu">DSEU Portal</button>
+        <button class="case-tab" role="tab" aria-selected="false" data-case="rc-club">RC Club</button>
+        <button class="case-tab" role="tab" aria-selected="false" data-case="apex">Apex Insights</button>
+        <button class="case-tab" role="tab" aria-selected="false" data-case="nds">NDS Site</button>
+      </div>
+
+      <div class="case-panel active reveal" id="case-dseu" role="tabpanel">
+        <div class="case-hero">
+          <img src="/assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" loading="lazy">
+          <div class="case-hero-meta">
+            <span class="tag tag-live">Live</span>
+            <span class="tag">Portal</span>
+            <span class="tag">Flask</span>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <h3>Problem</h3>
+            <p>DSEU Rajokri Campus needed a single digital system — students, faculty, and admins were juggling spreadsheets, WhatsApp groups, and paper notices. No unified portal existed.</p>
+          </div>
+          <div class="case-block">
+            <h3>Solution</h3>
+            <p>Built a multi-role campus operating system with separate dashboards for each user type, real-time timetables, digital attendance, and a public-facing campus website.</p>
+          </div>
+          <div class="case-block case-block-full">
+            <h3>Key Features</h3>
+            <ul class="case-features">
+              <li>Student, faculty & admin dashboards</li>
+              <li>Digital attendance & timetables</li>
+              <li>Notices, roster & class management</li>
+              <li>Public campus website + PWA support</li>
+              <li>Role-based access control</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h3>Tech Stack</h3>
+            <div class="case-tech">
+              <span>Python</span><span>Flask</span><span>SQLite</span><span>HTML/CSS/JS</span><span>Render</span>
+            </div>
+          </div>
+          <div class="case-block case-block-cta">
+            <a href="https://dseu-rajokri-campus-portal.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">View Live Portal →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-panel" id="case-rc-club" role="tabpanel" hidden>
+        <div class="case-hero">
+          <img src="/assets/images/rc-club.png" alt="RC Innovation Club website" loading="lazy">
+          <div class="case-hero-meta">
+            <span class="tag tag-live">Live</span>
+            <span class="tag">Club Website</span>
+            <span class="tag">PWA</span>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <h3>Problem</h3>
+            <p>RC Innovation Club at DSEU had no online presence — events, team info, and resources lived in Instagram posts and Google Forms with no central hub for students.</p>
+          </div>
+          <div class="case-block">
+            <h3>Solution</h3>
+            <p>Designed and built a full club platform with events calendar, team gallery, resource downloads, certificate verification, and member registration — all in one place.</p>
+          </div>
+          <div class="case-block case-block-full">
+            <h3>Key Features</h3>
+            <ul class="case-features">
+              <li>Events & announcements section</li>
+              <li>Core team gallery with profiles</li>
+              <li>Resources hub & certificate verification</li>
+              <li>Member registration form</li>
+              <li>Light/dark theme switching</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h3>Tech Stack</h3>
+            <div class="case-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>Render</span>
+            </div>
+          </div>
+          <div class="case-block case-block-cta">
+            <a href="https://rc-innovation-club.onrender.com/" class="btn btn-outline" target="_blank" rel="noopener">View Live Site →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-panel" id="case-apex" role="tabpanel" hidden>
+        <div class="case-hero">
+          <img src="/assets/images/apex-insights.png" alt="Apex Insights website" loading="lazy">
+          <div class="case-hero-meta">
+            <span class="tag tag-live">Live</span>
+            <span class="tag">Client Work</span>
+            <span class="tag">Platform</span>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <h3>Problem</h3>
+            <p>Apex Insights needed a professional web presence for their market research business — panel redirect tracking, eligibility checks, and a way for clients to submit project briefs online.</p>
+          </div>
+          <div class="case-block">
+            <h3>Solution</h3>
+            <p>Built a polished research platform website with live studies showcase, panel redirect flow explanation, contact brief form, and secure respondent routing for quantitative & qualitative studies.</p>
+          </div>
+          <div class="case-block case-block-full">
+            <h3>Key Features</h3>
+            <ul class="case-features">
+              <li>Panel redirect start/end URL tracking</li>
+              <li>Eligibility checks (country, age, gender, quota)</li>
+              <li>Live studies dashboard</li>
+              <li>Project brief submission form</li>
+              <li>Services & methodology sections</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h3>Tech Stack</h3>
+            <div class="case-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive UI</span>
+            </div>
+          </div>
+          <div class="case-block case-block-cta">
+            <a href="https://myapexinsights.com/" class="btn btn-outline" target="_blank" rel="noopener">View Live Site →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-panel" id="case-nds" role="tabpanel" hidden>
+        <div class="case-hero">
+          <img src="/assets/images/nds-logo.png" alt="NDS Innovation website" loading="lazy">
+          <div class="case-hero-meta">
+            <span class="tag tag-live">Live</span>
+            <span class="tag">Agency Site</span>
+            <span class="tag">UI/UX</span>
+          </div>
+        </div>
+        <div class="case-grid">
+          <div class="case-block">
+            <h3>Problem</h3>
+            <p>As a solo freelancer, I needed a site that builds trust instantly — clear pricing, real portfolio, direct WhatsApp contact, and a premium feel without agency overhead.</p>
+          </div>
+          <div class="case-block">
+            <h3>Solution</h3>
+            <p>Designed and coded this entire agency site from scratch — dark minimal aesthetic, student pricing tier, page transitions, scroll animations, and PWA support.</p>
+          </div>
+          <div class="case-block case-block-full">
+            <h3>Key Features</h3>
+            <ul class="case-features">
+              <li>Dedicated pricing & student packages page</li>
+              <li>Portfolio with live project showcase</li>
+              <li>WhatsApp inquiry flow on every CTA</li>
+              <li>Smooth page transitions & scroll reveals</li>
+              <li>Installable PWA + SEO meta tags</li>
+            </ul>
+          </div>
+          <div class="case-block">
+            <h3>Tech Stack</h3>
+            <div class="case-tech">
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PWA</span><span>Render</span>
+            </div>
+          </div>
+          <div class="case-block case-block-cta">
+            <a href="/" class="btn btn-outline">You're here →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-banner premium-cta reveal">
+        <h2>Want something like this?</h2>
+        <p>Let's discuss your project — free consultation, no pressure.</p>
+        <a href="/contact" class="btn btn-gold magnetic-btn">Start Your Project →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <img src="/assets/images/nds-logo.png" alt="NDS Innovation" class="logo-img logo-img-footer">
+          </a>
+          <p>Websites &amp; apps by Nikhil. You talk to me directly — no agency.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/portfolio">My Work</a></li>
+            <li><a href="/case-studies">Case Studies</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services#website">Website Development</a></li>
+            <li><a href="/services#pwa">PWA Apps</a></li>
+            <li><a href="/services#ecommerce">E-Commerce</a></li>
+            <li><a href="/services#custom">Custom Solutions</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:ndsinnovationn@gmail.com">ndsinnovationn@gmail.com</a></li>
+            <li><a href="tel:+919310644433">+91 93106 44433</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NDS Innovation · Built by Nikhil</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <script src="/assets/js/main.js?v=10"></script>
+</body>
+</html>

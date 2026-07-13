@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/style.css?v=9">
+  <link rel="stylesheet" href="/assets/css/style.css?v=14">
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');
@@ -67,8 +67,15 @@
         <h3 style="margin-bottom:8px;font-size:1.1rem;">Transparency First</h3>
         <p style="color:var(--text-secondary);font-size:0.95rem;margin:0;">Items marked <strong>Live</strong> are real projects. Items marked <strong>Concept</strong> are design samples to show my style — not fake client work.</p>
       </div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card premium-card reveal">
+      <div class="portfolio-filters reveal" id="portfolioFilters" role="tablist" aria-label="Filter projects">
+        <button class="portfolio-filter active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="portfolio-filter" data-filter="website" role="tab" aria-selected="false">Website</button>
+        <button class="portfolio-filter" data-filter="portal" role="tab" aria-selected="false">Portal</button>
+        <button class="portfolio-filter" data-filter="client" role="tab" aria-selected="false">Client Work</button>
+        <button class="portfolio-filter" data-filter="concept" role="tab" aria-selected="false">Concept</button>
+      </div>
+      <div class="portfolio-grid" id="portfolioGrid">
+        <div class="portfolio-card premium-card reveal" data-category="website club">
           <div class="portfolio-thumb portfolio-thumb-live">
             <img src="/assets/images/rc-club.png" alt="RC Innovation Club website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
@@ -83,10 +90,11 @@
             <p>Club site for DSEU Rajokri — events, team, gallery, certificates, member signup.</p>
             <div class="portfolio-actions">
               <a href="https://rc-innovation-club.onrender.com/" class="btn btn-outline" target="_blank" rel="noopener">View Site →</a>
+              <a href="/case-studies#case-rc-club" class="btn btn-outline btn-sm">Case Study →</a>
             </div>
           </div>
         </div>
-        <div class="portfolio-card premium-card reveal">
+        <div class="portfolio-card premium-card reveal" data-category="website">
           <div class="portfolio-thumb portfolio-thumb-live">
             <img src="/assets/images/nds-logo.png" alt="NDS Innovation website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
@@ -101,10 +109,11 @@
             <p>Dark minimal agency site with dedicated pricing page, student packages, page transitions, scroll animations, and WhatsApp inquiry flow.</p>
             <div class="portfolio-actions">
               <a href="/" class="btn btn-outline">View Site →</a>
+              <a href="/case-studies#case-nds" class="btn btn-outline btn-sm">Case Study →</a>
             </div>
           </div>
         </div>
-        <div class="portfolio-card premium-card reveal">
+        <div class="portfolio-card premium-card reveal" data-category="portal">
           <div class="portfolio-thumb portfolio-thumb-live">
             <img src="/assets/images/dseu-portal.png" alt="DSEU Rajokri Campus Portal" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
           </div>
@@ -119,10 +128,30 @@
             <p>Full campus operating system: student, faculty & admin portals, digital attendance, timetables, notices, roster management, and public campus website with PWA support.</p>
             <div class="portfolio-actions">
               <a href="https://dseu-rajokri-campus-portal.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">View Portal →</a>
+              <a href="/case-studies#case-dseu" class="btn btn-outline btn-sm">Case Study →</a>
             </div>
           </div>
         </div>
-        <div class="portfolio-card premium-card reveal">
+        <div class="portfolio-card premium-card reveal" data-category="website client">
+          <div class="portfolio-thumb portfolio-thumb-live">
+            <img src="/assets/images/apex-insights.png" alt="Apex Insights website" class="portfolio-thumb-img" loading="lazy" width="400" height="225">
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tags">
+              <span class="tag tag-live">Live</span>
+              <span class="tag">Website</span>
+              <span class="tag">Platform</span>
+            </div>
+            <h3>Apex Insights</h3>
+            <p class="portfolio-meta">Market research & survey redirect platform for panel-based studies.</p>
+            <p>Panel redirect tracking with eligibility checks, live studies dashboard, project brief submissions, and secure routing for quantitative & qualitative research.</p>
+            <div class="portfolio-actions">
+              <a href="https://myapexinsights.com/" class="btn btn-outline" target="_blank" rel="noopener">View Site →</a>
+              <a href="/case-studies#case-apex" class="btn btn-outline btn-sm">Case Study →</a>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-card premium-card reveal" data-category="concept">
           <div class="portfolio-thumb portfolio-thumb-concept">
             <span>🛒</span>
             <span class="concept-label">Concept Design</span>
@@ -137,7 +166,7 @@
             <p>Product catalog, shopping cart flow, and mobile checkout — built to demonstrate e-commerce UI skills.</p>
           </div>
         </div>
-        <div class="portfolio-card premium-card reveal">
+        <div class="portfolio-card premium-card reveal" data-category="concept">
           <div class="portfolio-thumb portfolio-thumb-concept">
             <span>🍽️</span>
             <span class="concept-label">Concept Design</span>
@@ -217,6 +246,6 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="/assets/js/main.js?v=7"></script>
+  <script src="/assets/js/main.js?v=10"></script>
 </body>
 </html>
