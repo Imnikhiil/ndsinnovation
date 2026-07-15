@@ -17,6 +17,38 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=21">
+  <style>
+    @media(max-width:768px){
+      section{padding:36px 0}
+      .nav-toggle{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);align-items:center;justify-content:center;gap:5px;padding:0}
+      .nav-toggle span{width:16px;height:1.5px}
+      .nav-links{padding:14px 18px;gap:2px;border-radius:0 0 14px 14px}
+      .nav-links a{padding:10px 12px;font-size:0.88rem;border-radius:8px}
+      .nav-cta{margin-top:8px;font-size:0.84rem!important;padding:9px 14px!important}
+      .case-tabs{gap:6px;flex-wrap:wrap;justify-content:center}
+      .case-tab{padding:7px 12px;font-size:0.75rem}
+      .case-hero{height:120px;border-radius:12px}
+      .case-block{padding:16px 12px;border-radius:10px}
+      .case-block h3{font-size:0.92rem}
+      .case-block p,.case-block li{font-size:0.78rem}
+      .case-features{grid-template-columns:1fr;gap:6px}
+      .case-metrics{grid-template-columns:1fr 1fr;gap:8px}
+      .case-metric{padding:10px}
+      .case-metric-value{font-size:1.1rem}
+      .case-metric-label{font-size:0.68rem}
+      .page-header h1{font-size:1.5rem}
+      .page-header p{font-size:0.85rem}
+      .container{padding-left:14px;padding-right:14px}
+    }
+    @media(max-width:420px){
+      section{padding:24px 0}
+      .case-tab{padding:5px 9px;font-size:0.68rem}
+      .case-hero{height:80px}
+      .case-block{padding:12px 10px}
+      .case-block h3{font-size:0.85rem}
+      .case-block p,.case-block li{font-size:0.72rem}
+    }
+  </style>
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');

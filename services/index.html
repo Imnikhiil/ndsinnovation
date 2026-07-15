@@ -19,6 +19,37 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css?v=21">
+  <style>
+    @media(max-width:768px){
+      section{padding:36px 0}
+      .nav-toggle{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);align-items:center;justify-content:center;gap:5px;padding:0}
+      .nav-toggle span{width:16px;height:1.5px}
+      .nav-links{padding:14px 18px;gap:2px;border-radius:0 0 14px 14px}
+      .nav-links a{padding:10px 12px;font-size:0.88rem;border-radius:8px}
+      .nav-cta{margin-top:8px;font-size:0.84rem!important;padding:9px 14px!important}
+      .service-detail-card{padding:18px 14px}
+      .sd-icon{width:40px;height:40px;font-size:1.2rem;margin-bottom:10px;border-radius:10px}
+      .sd-title{font-size:1rem;margin-bottom:6px}
+      .sd-desc{font-size:0.8rem;margin-bottom:8px}
+      .sd-list{grid-template-columns:1fr 1fr;gap:3px;margin:8px 0 14px;font-size:0.75rem}
+      .service-detail-card .btn{font-size:0.78rem;padding:8px 14px}
+      .page-header h1{font-size:1.5rem}
+      .page-header p{font-size:0.85rem}
+      .container{padding-left:14px;padding-right:14px}
+      .cta-banner{padding:24px 16px}
+      .cta-banner h2{font-size:1.1rem}
+      .cta-banner p{font-size:0.82rem}
+    }
+    @media(max-width:420px){
+      section{padding:28px 0}
+      .service-detail-card{padding:14px 12px}
+      .sd-icon{width:34px;height:34px;font-size:1rem}
+      .sd-title{font-size:0.9rem}
+      .sd-desc{font-size:0.75rem}
+      .sd-list{grid-template-columns:1fr;font-size:0.72rem}
+      .service-detail-card .btn{width:100%;justify-content:center;font-size:0.75rem}
+    }
+  </style>
   <script>
     if (sessionStorage.getItem('nds-page-nav') === '1') {
       document.documentElement.classList.add('nav-transition');
