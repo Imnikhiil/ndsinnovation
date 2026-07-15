@@ -3422,8 +3422,11 @@ section:nth-child(even) {
   content: '✓';
   position: absolute;
   left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   color: #4ade80;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  line-height: 1;
 }
 
 .pricing-note {
@@ -5549,6 +5552,7 @@ section:nth-child(even) {
 
   .pricing-card ul li {
     padding: 5px 0;
+    padding-left: 18px;
   }
 
   .pricing-includes-label {
@@ -5594,6 +5598,7 @@ section:nth-child(even) {
 
   .pricing-card ul li {
     padding: 4px 0;
+    padding-left: 16px;
   }
 
   .pricing-badge {
