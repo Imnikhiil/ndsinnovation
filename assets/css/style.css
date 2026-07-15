@@ -4937,7 +4937,7 @@ section:nth-child(even) {
 }
 
 .case-hero img {
-  max-height: 180px;
+  max-height: 90%;
   max-width: 80%;
   object-fit: contain;
 }
@@ -5719,8 +5719,14 @@ section:nth-child(even) {
   }
 
   .case-hero {
-    height: 140px;
+    height: 170px;
     border-radius: 12px;
+  }
+
+  .case-hero img {
+    max-height: 85%;
+    max-width: 85%;
+    object-fit: contain;
   }
 
   .case-panel {
@@ -5771,7 +5777,12 @@ section:nth-child(even) {
   }
 
   .case-hero {
-    height: 100px;
+    height: 140px;
+  }
+
+  .case-hero img {
+    max-height: 80%;
+    max-width: 80%;
   }
 
   .case-block {
