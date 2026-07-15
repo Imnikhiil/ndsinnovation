@@ -1,10 +1,11 @@
-const CACHE = 'nds-v3';
+const CACHE = 'nds-v6';
 const ASSETS = [
   '/',
   '/about/',
   '/services/',
   '/pricing/',
   '/portfolio/',
+  '/case-studies/',
   '/contact/',
   '/assets/css/style.css',
   '/assets/js/main.js',
@@ -12,7 +13,8 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
+  self.skipWaiting();
+  e.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)));
 });
 
 self.addEventListener('activate', (e) => {
@@ -25,7 +27,14 @@ self.addEventListener('activate', (e) => {
 
 self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET') return;
+
   e.respondWith(
-    caches.match(e.request).then((cached) => cached || fetch(e.request))
+    fetch(e.request)
+      .then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE).then((cache) => cache.put(e.request, clone));
+        return response;
+      })
+      .catch(() => caches.match(e.request))
   );
 });

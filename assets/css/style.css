@@ -4959,4 +4959,132 @@ section:nth-child(even) {
   .bad-nav span:nth-child(3) {
     display: inline;
   }
+
+  .calc-form {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .calc-checks {
+    grid-template-columns: 1fr;
+  }
+
+  .calc-result {
+    padding: 20px;
+  }
+
+  .calc-result-price {
+    font-size: 1.8rem;
+  }
+
+  .case-tabs {
+    gap: 8px;
+  }
+
+  .case-tab {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .case-hero {
+    height: 160px;
+  }
+
+  .case-block {
+    padding: 18px;
+  }
+
+  .case-features {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-filters {
+    gap: 8px;
+  }
+
+  .portfolio-filter {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+  }
+
+  .portfolio-actions {
+    flex-direction: column;
+  }
+
+  .section-inline-cta {
+    padding: 20px 16px;
+  }
+
+  .compare-body {
+    padding: 16px;
+  }
+
+  .bad-hero h2 {
+    font-size: 0.6rem;
+  }
+
+  .good-hero h2 {
+    font-size: 0.7rem;
+  }
+
+  .good-stats {
+    gap: 8px;
+  }
+
+  .process-rail {
+    display: none;
+  }
+
+  .process-wrap .process-timeline {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .process-step {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .pricing-page-jump {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Mobile ≤ 480px tighter */
+@media (max-width: 480px) {
+  .work-marquee .portfolio-card,
+  .services-marquee .service-card {
+    flex-basis: 260px;
+    width: 260px;
+    margin-right: 14px;
+  }
+
+  .work-marquee .portfolio-thumb {
+    height: 140px;
+  }
+
+  .work-marquee .portfolio-info,
+  .services-marquee .service-card {
+    padding: 16px;
+  }
+
+  .compare-slider {
+    height: 280px;
+  }
+
+  .compare-label {
+    font-size: 0.55rem;
+    padding: 4px 8px;
+  }
+
+  .calc-wrap {
+    gap: 16px;
+  }
+
+  .section-header h2,
+  .section-title {
+    font-size: clamp(1.4rem, 6vw, 1.75rem);
+  }
 }
