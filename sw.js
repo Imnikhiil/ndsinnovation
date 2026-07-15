@@ -1,4 +1,4 @@
-const CACHE = 'nds-v9';
+const CACHE = 'nds-v10';
 const ASSETS = [
   '/',
   '/about/',
