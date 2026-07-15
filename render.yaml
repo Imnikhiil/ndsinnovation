@@ -3,6 +3,13 @@ services:
     name: ndsinnovation
     runtime: static
     staticPublishPath: .
+    headers:
+      - path: /sw.js
+        name: Cache-Control
+        value: no-cache, no-store, must-revalidate
+      - path: /*
+        name: Cache-Control
+        value: no-cache, must-revalidate
     routes:
       - type: redirect
         source: /index.html

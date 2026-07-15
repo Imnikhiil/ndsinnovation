@@ -1,5 +1,30 @@
 /* NDS Innovation — site interactions */
 
+/* Force reload when new service worker activates */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then((reg) => {
+    reg.addEventListener('updatefound', () => {
+      const newSW = reg.installing;
+      if (newSW) {
+        newSW.addEventListener('statechange', () => {
+          if (newSW.state === 'activated' && navigator.serviceWorker.controller) {
+            window.location.reload();
+          }
+        });
+      }
+    });
+  });
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (!refreshing) { refreshing = true; window.location.reload(); }
+  });
+  navigator.serviceWorker.addEventListener('message', (e) => {
+    if (e.data && e.data.type === 'SW_UPDATED') {
+      window.location.reload();
+    }
+  });
+}
+
 const NDS = {
   whatsapp: '919310644433',
   email: 'ndsinnovationn@gmail.com',
