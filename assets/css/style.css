@@ -645,6 +645,12 @@ section:nth-child(even) {
   justify-content: center;
   font-size: 1.5rem;
   margin-bottom: 20px;
+  transition: transform 0.5s var(--ease-out-expo), background-color 0.4s var(--ease-smooth);
+}
+
+.service-card:hover .service-icon {
+  transform: translateY(-3px) scale(1.08);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .service-card h3,
@@ -733,6 +739,12 @@ section:nth-child(even) {
 .why-icon {
   font-size: 2.5rem;
   margin-bottom: 16px;
+  display: inline-block;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.why-card:hover .why-icon {
+  transform: translateY(-4px) scale(1.1);
 }
 
 .why-card h3 {
@@ -2432,7 +2444,27 @@ section:nth-child(even) {
 }
 
 .premium-card .card-glow {
-  display: none;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-smooth);
+  background: radial-gradient(
+    420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255, 255, 255, 0.09),
+    transparent 55%
+  );
+  z-index: 0;
+}
+
+.premium-card:hover .card-glow,
+.premium-card.is-spotlit .card-glow {
+  opacity: 1;
+}
+
+.premium-card > *:not(.card-glow):not(.card-shine) {
+  position: relative;
+  z-index: 1;
 }
 
 .service-card.premium-card,
@@ -3275,6 +3307,7 @@ section:nth-child(even) {
   font-weight: 600;
   box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35);
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  animation: waSoftPulse 2.8s var(--ease-float) infinite;
 }
 
 .wa-float svg {
@@ -3291,6 +3324,11 @@ section:nth-child(even) {
   transform: translate3d(0, -3px, 0);
   box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
   color: #fff;
+}
+
+@keyframes waSoftPulse {
+  0%, 100% { box-shadow: 0 8px 28px rgba(37, 211, 102, 0.35); }
+  50% { box-shadow: 0 8px 36px rgba(37, 211, 102, 0.55); }
 }
 
 /* ---- Portfolio (honest) ---- */
@@ -6038,5 +6076,212 @@ section:nth-child(even) {
   .cta-banner .btn {
     font-size: 0.82rem;
     padding: 10px 18px;
+  }
+}
+
+/* ============================================
+   Motion polish — presence & hierarchy
+   ============================================ */
+
+.section-label {
+  position: relative;
+  padding-left: 0;
+  transition: color 0.5s var(--ease-smooth), letter-spacing 0.5s var(--ease-smooth);
+}
+
+.section-header.visible .section-label {
+  color: var(--accent-secondary);
+  letter-spacing: 0.18em;
+}
+
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 1px;
+  margin-right: 0;
+  background: var(--accent-secondary);
+  vertical-align: middle;
+  transition: width 0.7s var(--ease-out-expo), margin-right 0.7s var(--ease-out-expo);
+}
+
+.section-header.visible .section-label::before {
+  width: 28px;
+  margin-right: 12px;
+}
+
+.section-aurora::before {
+  animation: sectionAuroraDrift 18s var(--ease-float) infinite alternate;
+}
+
+@keyframes sectionAuroraDrift {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+  100% { transform: translate3d(2%, -1.5%, 0) scale(1.04); opacity: 0.85; }
+}
+
+.promise-card,
+.pricing-card,
+.value-card,
+.testimonial-card,
+.faq-item {
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background-color var(--transition);
+}
+
+.promise-card:hover,
+.value-card:hover,
+.testimonial-card:hover {
+  transform: translate3d(0, -5px, 0);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-card);
+}
+
+.service-link {
+  transition: gap 0.35s var(--ease-out-expo), color 0.35s var(--ease-smooth);
+}
+
+.service-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+.service-link {
+  position: relative;
+}
+
+.service-card:hover .service-link::after {
+  width: 100%;
+}
+
+.tilt-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.img-reveal {
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.9s var(--ease-out-expo),
+    transform 1s var(--ease-out-expo);
+}
+
+.img-reveal.is-loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.05), transparent 45%);
+  animation: ctaGlowDrift 10s var(--ease-float) infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes ctaGlowDrift {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(8%, 4%, 0); }
+}
+
+.nav-links a:not(.btn) {
+  position: relative;
+}
+
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  transition: width 0.35s var(--ease-out-expo);
+  opacity: 0.7;
+}
+
+.nav-links a:not(.btn):hover::after,
+.nav-links a:not(.btn).active::after {
+  width: 60%;
+}
+
+.hero-stats .stat-item {
+  transition: transform 0.45s var(--ease-out-expo), border-color 0.4s ease;
+}
+
+.hero-stats .stat-item:hover {
+  transform: translateY(-3px);
+}
+
+.scroll-top.visible {
+  animation: scrollTopIn 0.45s var(--ease-out-expo) both;
+}
+
+@keyframes scrollTopIn {
+  from { opacity: 0; transform: translate3d(0, 12px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.page-header h1,
+.about-hero h1 {
+  animation: heroSlideUp 0.9s var(--ease-out-expo) both;
+  animation-delay: 0.15s;
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links a:not(.btn)::after {
+    display: none;
+  }
+
+  .tilt-card {
+    transform: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-aurora::before,
+  .cta-banner::after,
+  .wa-float,
+  .float-badge.badge-1,
+  .float-badge.badge-2,
+  .float-badge.badge-3,
+  .float-badge.badge-4,
+  .browser-mockup,
+  .btn-shine,
+  .page-header h1,
+  .about-hero h1 {
+    animation: none !important;
+  }
+
+  .img-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tilt-card {
+    transform: none !important;
   }
 }

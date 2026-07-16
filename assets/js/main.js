@@ -75,6 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initPortfolioFilters();
   initCaseStudyTabs();
   initPwa();
+  initCardSpotlight();
+  initSoftTilt();
+  initImageReveal();
 });
 
 /* Smooth page transitions between internal pages */
@@ -1096,5 +1099,98 @@ function initPwa() {
   window.addEventListener('load', () => {
     const swPath = new URL('sw.js', window.location.href).pathname;
     navigator.serviceWorker.register(swPath).catch(() => {});
+  });
+}
+
+/* Cursor spotlight on premium cards */
+function initCardSpotlight() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
+  document.querySelectorAll('.premium-card').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--spot-x', `${e.clientX - rect.left}px`);
+      card.style.setProperty('--spot-y', `${e.clientY - rect.top}px`);
+      card.classList.add('is-spotlit');
+    });
+    card.addEventListener('pointerleave', () => {
+      card.classList.remove('is-spotlit');
+    });
+  });
+}
+
+/* Soft 3D tilt — why / promise / value cards */
+function initSoftTilt() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
+  const cards = document.querySelectorAll(
+    '.why-card, .promise-card, .value-card, .pricing-card:not(.featured)'
+  );
+  if (!cards.length) return;
+
+  cards.forEach((card) => {
+    card.classList.add('tilt-card');
+    let raf = null;
+    let tx = 0;
+    let ty = 0;
+    let cx = 0;
+    let cy = 0;
+
+    function tick() {
+      cx += (tx - cx) * 0.12;
+      cy += (ty - cy) * 0.12;
+      if (Math.abs(cx) < 0.02 && Math.abs(cy) < 0.02 && tx === 0 && ty === 0) {
+        card.style.transform = '';
+        raf = null;
+        return;
+      }
+      card.style.transform = `perspective(800px) rotateX(${cy}deg) rotateY(${cx}deg)`;
+      raf = requestAnimationFrame(tick);
+    }
+
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      tx = (x - 0.5) * 8;
+      ty = (0.5 - y) * 6;
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+
+    card.addEventListener('pointerleave', () => {
+      tx = 0;
+      ty = 0;
+      if (!raf) raf = requestAnimationFrame(tick);
+    });
+  });
+}
+
+/* Fade-in images as they enter view */
+function initImageReveal() {
+  const images = document.querySelectorAll(
+    '.portfolio-thumb-img, .about-photo img, .case-visual img'
+  );
+  if (!images.length) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  images.forEach((img) => {
+    if (reduceMotion) {
+      img.classList.add('img-reveal', 'is-loaded');
+      return;
+    }
+
+    img.classList.add('img-reveal');
+
+    const mark = () => img.classList.add('is-loaded');
+
+    if (img.complete && img.naturalWidth > 0) {
+      requestAnimationFrame(mark);
+    } else {
+      img.addEventListener('load', mark, { once: true });
+      img.addEventListener('error', mark, { once: true });
+    }
   });
 }
