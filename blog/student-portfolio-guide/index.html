@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A complete guide for students on how to build a portfolio website that impresses recruiters and gets you hired. Practical tips, free hosting options, and common mistakes to avoid.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#14120B">
+  <link rel="canonical" href="https://ndsinnovation.onrender.com/blog/student-portfolio-guide">
+  <meta property="og:title" content="How to Build a Portfolio That Gets You Hired — A Student's Guide | NDS Innovation Blog">
+  <meta property="og:description" content="A complete guide for students on how to build a portfolio website that impresses recruiters and gets you hired. Practical tips, free hosting options, and common mistakes to avoid.">
+  <meta property="og:image" content="https://ndsinnovation.onrender.com/assets/images/og-share.png">
+  <meta property="og:url" content="https://ndsinnovation.onrender.com/blog/student-portfolio-guide">
+  <meta property="og:type" content="article">
+  <title>How to Build a Portfolio That Gets You Hired — A Student's Guide | NDS Innovation Blog</title>
+  <link rel="icon" href="/assets/images/nds-logo.png" type="image/png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css?v=23">
+  <style>
+    .blog-post { max-width: 780px; margin: 0 auto; }
+    .blog-post-header { margin-bottom: 40px; }
+    .blog-post-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .blog-post-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-primary); background: rgba(255,255,255,0.06); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); }
+    .blog-post-date { font-size: 0.8rem; color: var(--text-muted); }
+    .blog-post-header h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 16px; }
+    .blog-post-subtitle { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; }
+    .blog-post-body h2 { font-size: 1.4rem; font-weight: 700; margin: 40px 0 16px; color: var(--text-primary); }
+    .blog-post-body h3 { font-size: 1.15rem; font-weight: 600; margin: 30px 0 12px; color: var(--text-primary); }
+    .blog-post-body p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+    .blog-post-body ul, .blog-post-body ol { color: var(--text-secondary); margin: 0 0 20px 20px; line-height: 1.8; }
+    .blog-post-body li { margin-bottom: 8px; }
+    .blog-post-body blockquote { border-left: 3px solid var(--border-accent); padding: 16px 24px; margin: 24px 0; background: rgba(255,255,255,0.02); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-secondary); }
+    .blog-post-body strong { color: var(--text-primary); }
+    .blog-post-cta { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; text-align: center; margin-top: 48px; }
+    .blog-post-cta h3 { font-size: 1.2rem; margin-bottom: 12px; }
+    .blog-post-cta p { color: var(--text-secondary); margin-bottom: 20px; }
+    .blog-post-nav { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .blog-post-nav a { color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .blog-post-nav a:hover { color: var(--text-primary); }
+    @media(max-width:768px) {
+      section { padding: 36px 0; }
+      .nav-toggle { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); align-items: center; justify-content: center; gap: 5px; padding: 0; }
+      .nav-toggle span { width: 16px; height: 1.5px; }
+      .nav-links { padding: 14px 18px; gap: 2px; border-radius: 0 0 14px 14px; }
+      .nav-links a { padding: 10px 12px; font-size: 0.88rem; border-radius: 8px; }
+      .nav-cta { margin-top: 8px; font-size: 0.84rem !important; padding: 9px 14px !important; }
+      .container { padding-left: 14px; padding-right: 14px; }
+      .blog-post-header h1 { font-size: 1.5rem; }
+      .blog-post-subtitle { font-size: 0.95rem; }
+      .blog-post-body h2 { font-size: 1.2rem; }
+      .blog-post-body p { font-size: 0.9rem; }
+    }
+    @media(max-width:420px) {
+      section { padding: 24px 0; }
+      .blog-post-header h1 { font-size: 1.3rem; }
+      .blog-post-body h2 { font-size: 1.05rem; }
+    }
+  </style>
+  <script>
+    if (sessionStorage.getItem('nds-page-nav') === '1') {
+      document.documentElement.classList.add('nav-transition');
+    }
+  </script>
+</head>
+<body>
+  <div class="page-transition" id="pageTransition" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav">
+        <a href="/" class="logo">
+          <img src="/assets/images/nds-logo.png" alt="NDS Innovation" class="logo-img">
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/portfolio">Work</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/blog" class="active">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="https://wa.me/919310644433?text=Hi%20Nikhil!%20I%20want%20to%20discuss%20a%20project." class="btn btn-primary nav-cta magnetic-btn" target="_blank" rel="noopener">Hire Me →</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="blog-post">
+        <div class="blog-post-header">
+          <div class="blog-post-meta">
+            <span class="blog-post-tag">Students</span>
+            <span class="blog-post-date">Jul 2026</span>
+          </div>
+          <h1>How to Build a Portfolio That Gets You Hired — A Student's Guide</h1>
+          <p class="blog-post-subtitle">Your resume says you know React. Cool. But can you show me something you've built? Here's how to create a portfolio that actually lands you interviews.</p>
+        </div>
+        <div class="blog-post-body">
+          <p>Let me be brutally honest with you: in 2026, a resume alone won't get you hired in tech. Every CS student has the same buzzwords — Python, React, Machine Learning, "team player." Recruiters have seen thousands of identical resumes. What makes them stop and actually look at yours?</p>
+          <p>A portfolio. A real, living, breathing website that shows what you can do — not just what you claim you can do.</p>
+          <p>I've reviewed portfolios from students across India — from IITs to tier-3 colleges — and I can tell you this: the college name matters way less than most students think. What matters is the quality of your work and how you present it. And that's exactly what we're going to fix today.</p>
+
+          <h2>Why Your Portfolio Matters More Than Your Resume</h2>
+          <p>A resume is a list. A portfolio is proof.</p>
+          <p>When a recruiter sees "Built a full-stack e-commerce app" on your resume, they have no idea if you built a polished product or a half-broken tutorial clone. But when they click a link and see a <strong>live, working project</strong> with clean code on GitHub — that's a completely different conversation.</p>
+          <p>Here's what a good portfolio communicates:</p>
+          <ul>
+            <li><strong>You can ship.</strong> You don't just write code in theory — you build real things that work.</li>
+            <li><strong>You care about quality.</strong> The design, the details, the polish — it all shows your standards.</li>
+            <li><strong>You're proactive.</strong> Nobody asked you to build this. You did it because you're serious about your career.</li>
+            <li><strong>You can communicate.</strong> How you describe your projects shows your ability to explain complex things clearly.</li>
+          </ul>
+          <blockquote>I've seen students from small-town colleges get internships at top startups — beating IIT candidates — because their portfolios were that good. It's the great equalizer.</blockquote>
+
+          <h2>What to Include in Your Portfolio</h2>
+          <p>Your portfolio doesn't need to be complicated. In fact, simpler is usually better. Here's what you need:</p>
+          <h3>1. A Strong Hero Section</h3>
+          <p>This is the first thing people see. It should instantly communicate who you are and what you do. Something like: "Hi, I'm Priya. I build web apps that people actually enjoy using." Keep it clean, confident, and specific. Avoid generic statements like "Passionate developer seeking opportunities."</p>
+
+          <h3>2. About Section</h3>
+          <p>A brief paragraph about your background, what you're studying, what you're interested in, and what kind of roles you're looking for. Keep it conversational — you're a human, not a LinkedIn bot. Mention specific technologies you enjoy working with and why.</p>
+
+          <h3>3. Projects (This Is the Main Event)</h3>
+          <p>This is where most students either shine or fail. You need <strong>3-5 solid projects</strong>. Not 15 half-baked ones. Three excellent projects beat thirty mediocre ones every single time.</p>
+          <p>For each project, include:</p>
+          <ul>
+            <li><strong>Project name and one-line description</strong></li>
+            <li><strong>A screenshot or demo GIF</strong> (visuals matter enormously)</li>
+            <li><strong>The problem it solves</strong> — not just "I built a to-do app" but "I built a task manager with recurring tasks and smart reminders because existing apps didn't handle recurring tasks well"</li>
+            <li><strong>Tech stack used</strong> — list the specific technologies</li>
+            <li><strong>Your role</strong> — especially important for group projects; clarify what YOU did</li>
+            <li><strong>Live demo link</strong> — deploy your projects (more on this below)</li>
+            <li><strong>GitHub link</strong> — clean, well-documented code with a proper README</li>
+          </ul>
+
+          <h3>4. Skills Section</h3>
+          <p>Keep it honest. List technologies you can actually use in a real project, not ones you watched a 20-minute YouTube video about. Categorize them: Languages, Frameworks, Tools, Databases. Don't use skill bars (those "75% proficient in Python" bars) — they're meaningless and most recruiters find them annoying.</p>
+
+          <h3>5. Contact Section</h3>
+          <p>Make it dead simple to reach you. Email, LinkedIn, GitHub, and optionally Twitter/X. Include a clear call-to-action: "Looking for internship opportunities. Let's connect."</p>
+
+          <h2>How to Write Project Descriptions That Impress</h2>
+          <p>This is where 90% of student portfolios fall flat. They write something like: "A weather app built with React and OpenWeather API." That tells me nothing about your thinking.</p>
+          <p>Instead, try this structure:</p>
+          <ol>
+            <li><strong>What does it do?</strong> (One sentence)</li>
+            <li><strong>Why did you build it?</strong> (The problem or motivation)</li>
+            <li><strong>What was challenging?</strong> (Shows your problem-solving ability)</li>
+            <li><strong>What did you learn?</strong> (Shows growth mindset)</li>
+          </ol>
+          <p>Example: "Built a real-time chat application supporting group conversations and file sharing. I wanted to understand WebSocket connections beyond the basics, so I implemented the server from scratch using Node.js instead of using Firebase. The hardest part was handling reconnection logic when users switch between WiFi and mobile data. This project taught me about connection state management and how apps like WhatsApp handle network interruptions."</p>
+          <p>See the difference? That tells a recruiter you think deeply about the problems you solve.</p>
+
+          <h2>Design Tips: You Don't Need to Be a Designer</h2>
+          <p>Your portfolio doesn't need to win design awards. It needs to be <strong>clean, readable, and professional</strong>. Here are the rules:</p>
+          <ul>
+            <li><strong>Use one or two fonts maximum.</strong> A sans-serif like Inter, Plus Jakarta Sans, or Poppins works great.</li>
+            <li><strong>Stick to a simple color palette.</strong> A dark background with white/light text and one accent color is a safe, modern choice.</li>
+            <li><strong>Use plenty of white space.</strong> Don't cram everything together. Let your content breathe.</li>
+            <li><strong>Make it responsive.</strong> If a recruiter opens your portfolio on their phone and it looks broken, that's an instant rejection — especially if you're applying for a frontend role.</li>
+            <li><strong>Use real screenshots.</strong> Mockup tools like Shots.so or device mockup generators can make your screenshots look professional without any design skills.</li>
+            <li><strong>Keep navigation simple.</strong> A single-page scrolling portfolio with a fixed navbar works perfectly for most students.</li>
+          </ul>
+          <blockquote>A clean, minimal portfolio with 3 great projects will always outperform a flashy, overdesigned one with 10 mediocre projects.</blockquote>
+
+          <h2>Hosting Your Portfolio for Free</h2>
+          <p>You're a student. You probably don't want to spend money on hosting. Good news: you don't have to. Here are the best free options in 2026:</p>
+          <ul>
+            <li><strong>GitHub Pages</strong> — Perfect for static HTML/CSS/JS portfolios. Free, reliable, and your custom domain works too.</li>
+            <li><strong>Vercel</strong> — Ideal for React, Next.js, or any JavaScript framework. Generous free tier, instant deployments from GitHub.</li>
+            <li><strong>Netlify</strong> — Similar to Vercel, great for static sites and JAMstack apps. Free tier includes form handling and serverless functions.</li>
+            <li><strong>Render</strong> — Good for full-stack projects (Node.js, Python backends). Free tier available with some limitations.</li>
+            <li><strong>Cloudflare Pages</strong> — Extremely fast, unlimited bandwidth on the free tier. Great for static sites.</li>
+          </ul>
+          <p>For your portfolio itself, GitHub Pages or Vercel is usually the best choice. For your individual projects, deploy them on whichever platform fits the tech stack.</p>
+          <p><strong>Pro tip:</strong> Buy a custom domain. A yourname.dev or yourname.in domain costs ₹500-800 per year and instantly makes your portfolio look more professional than a github.io URL.</p>
+
+          <h2>Mistakes That Kill Your Portfolio</h2>
+          <p>I've seen these mistakes so many times, and each one can cost you an interview:</p>
+          <h3>1. Tutorial Projects Only</h3>
+          <p>If every project on your portfolio is a YouTube tutorial clone (Netflix clone, Instagram clone, to-do app), recruiters will notice. It shows you can follow instructions, not that you can think independently. At least 2 out of your 3-5 projects should be original ideas that solve real problems.</p>
+
+          <h3>2. Dead Links</h3>
+          <p>There is nothing worse than clicking "Live Demo" and getting a 404 error. Before sending your portfolio to anyone, click every single link. Make sure your deployed projects are still running. Free hosting tiers sometimes sleep after inactivity — account for that.</p>
+
+          <h3>3. No README on GitHub</h3>
+          <p>Your GitHub repo for each project should have a proper README: what it does, how to run it locally, screenshots, and tech stack. A repo with just code and no documentation screams "I don't care about communication."</p>
+
+          <h3>4. Listing 20+ Skills You Can't Back Up</h3>
+          <p>If your skills section lists Docker, Kubernetes, AWS, GraphQL, Redis, and Machine Learning, but your projects only use basic HTML and JavaScript — that's a red flag. List what you can demonstrate.</p>
+
+          <h3>5. Ignoring Mobile Responsiveness</h3>
+          <p>More than half of recruiter initial screenings happen on phones — during commutes, between meetings. If your portfolio breaks on mobile, you've lost them before they even saw your work.</p>
+
+          <h3>6. No Call to Action</h3>
+          <p>You'd be surprised how many portfolios I've seen that don't have a clear way to contact the person. Make your email and LinkedIn prominent. Make it easy for someone to reach out.</p>
+
+          <h2>How Recruiters Actually Evaluate Portfolios</h2>
+          <p>I've spoken to several hiring managers and recruiters at Indian tech companies. Here's what they actually look at (in order):</p>
+          <ol>
+            <li><strong>First impression (3 seconds)</strong> — Does it look professional? Is it loading fast? Is it broken on my device?</li>
+            <li><strong>Projects (30 seconds)</strong> — What have they built? Are there live demos? Are the projects relevant to the role?</li>
+            <li><strong>Code quality (1-2 minutes)</strong> — If interested, they'll check your GitHub. Clean code, meaningful commit messages, and proper project structure matter.</li>
+            <li><strong>Communication (throughout)</strong> — How well do you describe your projects? Can you explain technical decisions clearly?</li>
+            <li><strong>Consistency</strong> — Does the portfolio match what's on the resume? Are the skills demonstrated in actual projects?</li>
+          </ol>
+          <p>Notice what's NOT on the list: fancy animations, 3D graphics, complex page transitions. Those are nice, but they're icing — not the cake.</p>
+
+          <h2>The Action Plan: Start Today</h2>
+          <p>Here's exactly what to do this week:</p>
+          <ol>
+            <li><strong>Day 1-2:</strong> Pick 3 of your best projects. If you don't have 3 good ones, start building one today. Solve a real problem you care about.</li>
+            <li><strong>Day 3:</strong> Write proper descriptions for each project using the structure above. Add READMEs to your GitHub repos.</li>
+            <li><strong>Day 4-5:</strong> Build your portfolio site. Use a simple template or build from scratch if you're a frontend developer. Deploy on Vercel or GitHub Pages.</li>
+            <li><strong>Day 6:</strong> Deploy all your projects so live demos work. Test every link on both desktop and mobile.</li>
+            <li><strong>Day 7:</strong> Share it with 2-3 people for feedback. Fix what they point out. Add the link to your resume, LinkedIn, and GitHub profile.</li>
+          </ol>
+          <p>One week. That's all it takes to go from "another student with a resume" to "the student with the impressive portfolio." Your future self will thank you.</p>
+          <p>Now stop reading and <strong>start building</strong>.</p>
+        </div>
+        <div class="blog-post-cta">
+          <h3>Need a website for your business?</h3>
+          <p>NDS Innovation builds fast, modern websites starting from ₹7,999. Let's talk about your project.</p>
+          <a href="https://wa.me/919310644433?text=Hi!%20I%20read%20your%20blog%20and%20want%20to%20discuss%20a%20project." class="btn btn-primary" target="_blank" rel="noopener">Book Free Consultation →</a>
+        </div>
+        <div class="blog-post-nav">
+          <a href="/blog">← Back to Blog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo"><img src="/assets/images/nds-logo.png" alt="NDS Innovation" class="logo-img logo-img-footer"></a>
+          <p>Websites &amp; apps by Nikhil. You talk to me directly — no agency.</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/ndsinnovation" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+            <a href="https://wa.me/919310644433" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Me</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/portfolio">My Work</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/services#website">Website Development</a></li>
+            <li><a href="/services#pwa">PWA Apps</a></li>
+            <li><a href="/services#ecommerce">E-Commerce</a></li>
+            <li><a href="/services#uiux">UI/UX Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:ndsinnovationn@gmail.com">ndsinnovationn@gmail.com</a></li>
+            <li><a href="tel:+919310644433">+91 93106 44433</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NDS Innovation · Built by Nikhil</p>
+      </div>
+    </div>
+  </footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
+  <script src="/assets/js/main.js?v=14"></script>
+</body>
+</html>
