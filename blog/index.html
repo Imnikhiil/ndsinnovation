@@ -43,11 +43,26 @@
       width: 100%;
       height: 200px;
       background: var(--bg-card-hover);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
+      overflow: hidden;
+      position: relative;
       border-bottom: 1px solid var(--border);
+    }
+    .blog-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    .blog-card:hover .blog-thumb img {
+      transform: scale(1.05);
+    }
+    .blog-thumb::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.35) 100%);
+      pointer-events: none;
     }
     .blog-body {
       padding: 24px;
@@ -182,7 +197,7 @@
   <section class="page-header">
     <div class="container">
       <h1>The NDS <span class="gradient-text">Blog</span></h1>
-      <p>Web development tips, freelancing insights, and tech guides — straight from real project experience.</p>
+      <p>Practical guides for Indian businesses, freelancers, and students — from real project experience, not theory.</p>
       <div class="blog-filter">
         <button class="active" data-filter="all">All</button>
         <button data-filter="web-dev">Web Dev</button>
@@ -199,118 +214,163 @@
       <div class="blog-grid" id="blogGrid">
 
         <article class="blog-card reveal" data-category="business">
-          <div class="blog-thumb">🌐</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/small-business-website.webp" type="image/webp">
+              <img src="/assets/images/blog/small-business-website.jpg" alt="Small business website on laptop" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Business</span>
               <span class="blog-date">Jul 2026</span>
             </div>
             <h3>Why Every Small Business in India Needs a Website in 2026</h3>
-            <p>Still relying only on Instagram or WhatsApp? Here's why a proper website builds trust, gets you found on Google, and brings in leads 24/7.</p>
+            <p>Still relying only on Instagram or WhatsApp? A proper website builds trust, ranks on Google, and brings leads 24/7 — with real numbers for Indian businesses.</p>
             <a href="/blog/why-every-small-business-needs-a-website/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="web-dev">
-          <div class="blog-thumb">⚡</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/pwa-vs-native.webp" type="image/webp">
+              <img src="/assets/images/blog/pwa-vs-native.jpg" alt="PWA app on smartphone" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Web Dev</span>
               <span class="blog-date">Jul 2026</span>
             </div>
             <h3>PWA vs Native App — Which One Should You Build?</h3>
-            <p>Progressive Web Apps load fast, work offline, and cost a fraction of native apps. Learn when a PWA is the smarter choice for your project.</p>
+            <p>₹5 lakh native app or a smarter PWA? Honest cost, speed, and India-focused examples so you pick what you actually need.</p>
             <a href="/blog/pwa-vs-native-app/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="student">
-          <div class="blog-thumb">🎓</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/student-portfolio.webp" type="image/webp">
+              <img src="/assets/images/blog/student-portfolio.jpg" alt="Student portfolio website on laptop" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Students</span>
               <span class="blog-date">Jul 2026</span>
             </div>
-            <h3>How to Build a Portfolio That Gets You Hired — A Student's Guide</h3>
-            <p>Your resume alone won't cut it. A personal portfolio website showcases your skills, projects, and personality to recruiters — here's how to make one that stands out.</p>
+            <h3>How to Build a Portfolio That Gets You Hired</h3>
+            <p>Everyone has the same resume skills. Show live projects, clean GitHub, and recruiter-friendly design — a practical student guide.</p>
             <a href="/blog/student-portfolio-guide/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="freelancing">
-          <div class="blog-thumb">💼</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/freelancer-agency.webp" type="image/webp">
+              <img src="/assets/images/blog/freelancer-agency.jpg" alt="Freelancer working with client" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Freelancing</span>
               <span class="blog-date">Jun 2026</span>
             </div>
             <h3>Freelancer vs Agency — What's Better for Your Project?</h3>
-            <p>Agencies charge more and add middlemen. A skilled freelancer gives you direct communication, faster delivery, and the same (or better) quality. Here's the breakdown.</p>
+            <p>Agencies cost more and add middlemen. A skilled freelancer gives direct chat, faster delivery, and equal quality — when each option wins.</p>
             <a href="/blog/freelancer-vs-agency/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="tech">
-          <div class="blog-thumb">🔒</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/security.webp" type="image/webp">
+              <img src="/assets/images/blog/security.jpg" alt="Website security padlock on laptop" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Tech Tips</span>
               <span class="blog-date">Jun 2026</span>
             </div>
             <h3>5 Website Security Mistakes That Can Kill Your Business</h3>
-            <p>No SSL, weak passwords, outdated plugins — these common mistakes make your site vulnerable. Learn how to protect your website and customer data.</p>
+            <p>No SSL, weak passwords, outdated plugins — small mistakes that invite hacks. A simple checklist to protect your site and customer data.</p>
             <a href="/blog/website-security-mistakes/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="web-dev">
-          <div class="blog-thumb">📱</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/mobile-first.webp" type="image/webp">
+              <img src="/assets/images/blog/mobile-first.jpg" alt="Mobile-first website on phone" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Web Dev</span>
               <span class="blog-date">Jun 2026</span>
             </div>
-            <h3>Mobile-First Design — Why Your Website Must Work on Phones First</h3>
-            <p>Over 75% of Indian users browse on mobile. If your site isn't mobile-optimized, you're losing customers. Here's how mobile-first design solves that.</p>
+            <h3>Mobile-First Design — Why Phones Come First</h3>
+            <p>Over 75% of Indian users browse on phones. If your site is slow or broken on mobile, you lose customers before they call you.</p>
             <a href="/blog/mobile-first-design/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="business">
-          <div class="blog-thumb">📈</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/seo.webp" type="image/webp">
+              <img src="/assets/images/blog/seo.jpg" alt="SEO analytics charts on laptop" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Business</span>
               <span class="blog-date">May 2026</span>
             </div>
             <h3>SEO Basics Every Business Owner Should Know</h3>
-            <p>You don't need to be a tech expert to understand SEO. Learn the fundamentals — keywords, meta tags, page speed, and local SEO — to rank higher on Google.</p>
+            <p>No tech jargon. Keywords, Google Business Profile, page speed, and local SEO — a practical guide to get found on Google.</p>
             <a href="/blog/seo-basics-for-business/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="student">
-          <div class="blog-thumb">💡</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/student-tools.webp" type="image/webp">
+              <img src="/assets/images/blog/student-tools.jpg" alt="Student developer coding setup" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Students</span>
               <span class="blog-date">May 2026</span>
             </div>
             <h3>Top 5 Free Tools Every Student Developer Should Use</h3>
-            <p>From VS Code to GitHub Pages — these free tools will level up your development workflow without spending a single rupee.</p>
+            <p>From VS Code to GitHub Pages — free tools that level up your coding workflow without spending a rupee. Student must-haves.</p>
             <a href="/blog/free-tools-for-student-developers/" class="blog-link">Read More →</a>
           </div>
         </article>
 
         <article class="blog-card reveal" data-category="freelancing">
-          <div class="blog-thumb">🤝</div>
+          <div class="blog-thumb">
+            <picture>
+              <source srcset="/assets/images/blog/pricing.webp" type="image/webp">
+              <img src="/assets/images/blog/pricing.jpg" alt="Freelance project pricing and calculator" loading="lazy" width="1200" height="675">
+            </picture>
+          </div>
           <div class="blog-body">
             <div class="blog-meta">
               <span class="blog-tag">Freelancing</span>
               <span class="blog-date">May 2026</span>
             </div>
             <h3>How to Price Your Freelance Web Projects Right</h3>
-            <p>Charging too low kills your business, too high scares clients away. Here's a practical pricing framework that works for Indian freelancers.</p>
+            <p>Charge too low and you burn out; too high and clients walk. A practical pricing framework built for Indian freelancers.</p>
             <a href="/blog/how-to-price-freelance-projects/" class="blog-link">Read More →</a>
           </div>
         </article>
@@ -382,7 +442,7 @@
   </footer>
 
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="/assets/js/main.js?v=14"></script>
+  <script src="/assets/js/main.js?v=15"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const filterBtns = document.querySelectorAll('.blog-filter button');

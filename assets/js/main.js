@@ -81,6 +81,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* Smooth page transitions between internal pages */
+function resetPageTransitionUI() {
+  const overlay = document.getElementById('pageTransition');
+  if (overlay) overlay.classList.remove('is-active');
+  document.documentElement.classList.remove('nav-transition', 'page-enter');
+  document.body.style.opacity = '';
+  document.body.style.transform = '';
+}
+
+function restoreVisibleReveals() {
+  const selectors = '.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur, .section-header';
+  document.querySelectorAll(selectors).forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 120 && rect.bottom > -120) {
+      el.classList.add('visible');
+    }
+  });
+}
+
 function initPageTransition(internalNav) {
   const overlay = document.getElementById('pageTransition');
   if (!overlay) return;
@@ -106,9 +124,17 @@ function initPageTransition(internalNav) {
       document.documentElement.classList.remove('page-enter');
     }, 800);
   } else {
-    document.documentElement.classList.remove('nav-transition');
-    overlay.classList.remove('is-active');
+    resetPageTransitionUI();
   }
+
+  // Browser Back/Forward restores page from bfcache with overlay still active — clear it
+  window.addEventListener('pageshow', (e) => {
+    resetPageTransitionUI();
+    if (e.persisted) {
+      sessionStorage.removeItem('nds-page-nav');
+      restoreVisibleReveals();
+    }
+  });
 
   document.addEventListener('click', (e) => {
     if (reduceMotion) return;

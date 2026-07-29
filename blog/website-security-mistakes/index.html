@@ -27,6 +27,21 @@
     .blog-post-date { font-size: 0.8rem; color: var(--text-muted); }
     .blog-post-header h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 16px; }
     .blog-post-subtitle { font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; }
+    .blog-post-cover {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 28px 0 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+    .blog-post-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     .blog-post-body h2 { font-size: 1.4rem; font-weight: 700; margin: 40px 0 16px; color: var(--text-primary); }
     .blog-post-body h3 { font-size: 1.15rem; font-weight: 600; margin: 30px 0 12px; color: var(--text-primary); }
     .blog-post-body p { font-size: 1rem; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
@@ -102,6 +117,12 @@
           </div>
           <h1>5 Website Security Mistakes That Can Kill Your Business</h1>
           <p class="blog-post-subtitle">Your website might be leaking customer data right now. Here are 5 security mistakes most Indian businesses make — and exactly how to fix each one before it's too late.</p>
+          <div class="blog-post-cover">
+            <picture>
+              <source srcset="/assets/images/blog/security.webp" type="image/webp">
+              <img src="/assets/images/blog/security.jpg" alt="Website security lock on a laptop" width="1200" height="675">
+            </picture>
+          </div>
         </div>
         <div class="blog-post-body">
           <p>Website security isn't just a "tech problem" — it's a business problem. A single security breach can leak your customers' personal data, destroy trust you spent years building, get your site blacklisted by Google, and in some cases, land you in legal trouble under India's Digital Personal Data Protection Act.</p>
@@ -281,6 +302,6 @@
     </div>
   </footer>
   <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">↑</button>
-  <script src="/assets/js/main.js?v=14"></script>
+  <script src="/assets/js/main.js?v=15"></script>
 </body>
 </html>
